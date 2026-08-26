@@ -38,6 +38,10 @@ Arquivos principais:
 - `recipe-dessert.webp`
 - `bonus-7-days.webp`
 - `bonus-sauces-checklist.webp`
+- `product-showcase.webp`
+- `recipe-showcase.webp`
+- `bonus-showcase.webp`
+- `offer-showcase.webp`
 
 ## Teste local
 

@@ -274,6 +274,13 @@ h1, h2, h3 {
   isolation: isolate;
 }
 
+.hero__campaign-image {
+  width: 100%;
+  border: 1px solid rgba(40, 35, 31, .1);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
 .hero__cover, .page-stack {
   border-radius: 3px 10px 10px 3px;
   box-shadow: var(--shadow);
@@ -372,6 +379,8 @@ h2 em, .brand-home h1 em { color: var(--orange); font-weight: 400; }
   gap: clamp(12px, 2vw, 24px);
 }
 
+.preview-gallery--campaign { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
 .preview { margin: 0; }
 .preview--raised { margin-top: 58px; }
 .preview img {
@@ -429,9 +438,12 @@ h2 em, .brand-home h1 em { color: var(--orange); font-weight: 400; }
 .category-grid span { color: #e28333; font-family: var(--sans); font-size: .73rem; font-weight: 850; letter-spacing: .12em; }
 
 .bonus-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 28px; }
+.bonus-grid--campaign { grid-template-columns: 1fr; }
 .bonus-card { min-height: 570px; padding: 28px; display: grid; grid-template-columns: 1fr; align-items: end; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--cream); }
 .bonus-card--wide { grid-template-columns: .7fr 1fr; gap: 28px; }
+.bonus-card--campaign { grid-template-columns: .55fr 1fr; gap: clamp(28px, 6vw, 76px); align-items: center; }
 .bonus-card img { width: 100%; max-height: 620px; object-fit: cover; object-position: top; border-radius: 3px 8px 8px 3px; box-shadow: 0 16px 34px rgba(48, 37, 28, .14); }
+.bonus-card--campaign img { max-height: none; object-fit: contain; }
 .bonus-card__copy { align-self: start; }
 .bonus-card__copy > span { display: block; margin-bottom: 26px; color: var(--orange); font-size: .72rem; font-weight: 850; letter-spacing: .12em; }
 .bonus-card h3 { margin-bottom: 16px; font-size: clamp(2rem, 3vw, 3rem); font-weight: 500; }
@@ -508,6 +520,7 @@ h2 em, .brand-home h1 em { color: var(--orange); font-weight: 400; }
   .hero__visual { padding-inline: 20px; }
   .receive-grid { grid-template-columns: 1fr .68fr; gap: 50px; }
   .preview-gallery { overflow-x: auto; grid-template-columns: repeat(5, 180px); padding: 10px 4px 30px; scroll-snap-type: x mandatory; }
+  .preview-gallery--campaign { grid-template-columns: repeat(4, 220px); }
   .preview { scroll-snap-align: start; }
   .bonus-card--wide { grid-template-columns: 1fr; }
   .audience-grid { grid-template-columns: 75px 1fr; }
@@ -604,6 +617,7 @@ h2 em, .brand-home h1 em { color: var(--orange); font-weight: 400; }
   .hero__visual { padding-inline: 12px; }
   .hero__badge { right: -1%; }
   .preview-gallery { grid-template-columns: repeat(5, 76vw); }
+  .preview-gallery--campaign { grid-template-columns: repeat(4, 76vw); }
   .bonus-card { padding: 20px; }
   .offer-card__buy { padding: 24px 18px; }
   .mobile-cta { gap: 10px; }
