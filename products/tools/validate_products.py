@@ -96,21 +96,37 @@ def validate_catalog(name: str, recipes: list[Recipe], categories: list[str], ex
     }
 
 
-def validate_pdf(pdf_path: Path, recipes: list[Recipe], expected_pages: int) -> dict:
+def validate_pdf(pdf_path: Path, recipes: list[Recipe], expected_pages: int,
+                 expected_image_pages: list[int]) -> dict:
     reader = PdfReader(str(pdf_path))
     page_texts = [(page.extract_text() or "").strip() for page in reader.pages]
     all_text = norm("\n".join(page_texts))
     missing_titles = [recipe.title for recipe in recipes if norm(recipe.title) not in all_text]
     blank_pages = [index + 1 for index, text in enumerate(page_texts) if len(text) < 3]
     boxes = [tuple(round(float(v), 2) for v in page.mediabox) for page in reader.pages]
+    image_pages = []
+    for index, page in enumerate(reader.pages, 1):
+        resources = page.get("/Resources") or {}
+        xobjects = resources.get("/XObject") or {}
+        if hasattr(xobjects, "get_object"):
+            xobjects = xobjects.get_object()
+        if any(ref.get_object().get("/Subtype") == "/Image" for ref in xobjects.values()):
+            image_pages.append(index)
     return {
         "path": str(pdf_path),
         "page_count": len(reader.pages),
         "expected_pages": expected_pages,
         "missing_recipe_titles": missing_titles,
         "blank_pages": blank_pages,
+        "image_pages": image_pages,
+        "expected_image_pages": expected_image_pages,
         "page_box_variants": sorted(set(boxes)),
-        "valid": len(reader.pages) == expected_pages and not missing_titles and not blank_pages,
+        "valid": (
+            len(reader.pages) == expected_pages
+            and not missing_titles
+            and not blank_pages
+            and image_pages == expected_image_pages
+        ),
     }
 
 
@@ -154,11 +170,11 @@ def main() -> None:
         "original_comparison": original_comparison(FIT_RECIPES + SPECIAL_RECIPES),
         "fit_pdf": validate_pdf(
             ROOT / "products" / "50-fit-low-carb" / "dist" / "50-receitas-fit-low-carb-airfryer.pdf",
-            FIT_RECIPES, 63,
+            FIT_RECIPES, 68, [3, 7, 19, 31, 43, 55],
         ),
         "special_pdf": validate_pdf(
             ROOT / "products" / "100-receitas-extras" / "dist" / "100-receitas-extras-airfryer.pdf",
-            SPECIAL_RECIPES, 114,
+            SPECIAL_RECIPES, 118, [3, 10, 37, 64, 91],
         ),
     }
     report["valid"] = not (

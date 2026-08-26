@@ -1,1 +1,1 @@
-Design vetorial original, sem fotografias ou ativos de terceiros.
+Design editorial vetorial com fotografias fornecidas pelo proprietário do projeto em assets/illustrations/.

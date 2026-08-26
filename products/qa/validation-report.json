@@ -37,10 +37,26 @@
   },
   "fit_pdf": {
     "path": "C:\\Users\\jabso\\Documents\\Codex\\2026-08-26\\use-o-pdf-final-do-produto\\products\\50-fit-low-carb\\dist\\50-receitas-fit-low-carb-airfryer.pdf",
-    "page_count": 63,
-    "expected_pages": 63,
+    "page_count": 68,
+    "expected_pages": 68,
     "missing_recipe_titles": [],
     "blank_pages": [],
+    "image_pages": [
+      3,
+      7,
+      19,
+      31,
+      43,
+      55
+    ],
+    "expected_image_pages": [
+      3,
+      7,
+      19,
+      31,
+      43,
+      55
+    ],
     "page_box_variants": [
       [
         0.0,
@@ -53,10 +69,24 @@
   },
   "special_pdf": {
     "path": "C:\\Users\\jabso\\Documents\\Codex\\2026-08-26\\use-o-pdf-final-do-produto\\products\\100-receitas-extras\\dist\\100-receitas-extras-airfryer.pdf",
-    "page_count": 114,
-    "expected_pages": 114,
+    "page_count": 118,
+    "expected_pages": 118,
     "missing_recipe_titles": [],
     "blank_pages": [],
+    "image_pages": [
+      3,
+      10,
+      37,
+      64,
+      91
+    ],
+    "expected_image_pages": [
+      3,
+      10,
+      37,
+      64,
+      91
+    ],
     "page_box_variants": [
       [
         0.0,

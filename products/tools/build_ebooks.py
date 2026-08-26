@@ -11,6 +11,7 @@ from reportlab.lib.pagesizes import A5
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
+from reportlab.lib.utils import ImageReader
 
 from catalog import (
     FIT_CATEGORIES,
@@ -77,6 +78,27 @@ def shadow_card(c: canvas.Canvas, x: float, y: float, width: float, height: floa
     c.roundRect(x + 2, y - 3, width, height, radius, fill=1, stroke=0)
     c.setFillColor(fill)
     c.roundRect(x, y, width, height, radius, fill=1, stroke=0)
+
+
+def cropped_image(c: canvas.Canvas, image_path: Path, x: float, y: float,
+                  width: float, height: float, radius: float = 10,
+                  focus_y: float = 0.5) -> None:
+    """Draw a centered cover crop without changing the source aspect ratio."""
+    image = ImageReader(str(image_path))
+    image_w, image_h = image.getSize()
+    scale = max(width / image_w, height / image_h)
+    draw_w, draw_h = image_w * scale, image_h * scale
+    draw_x = x + (width - draw_w) / 2
+    draw_y = y + (height - draw_h) * min(1, max(0, focus_y))
+    clip = c.beginPath()
+    clip.roundRect(x, y, width, height, radius)
+    c.saveState()
+    c.clipPath(clip, stroke=0, fill=0)
+    c.drawImage(image, draw_x, draw_y, draw_w, draw_h, mask="auto")
+    c.restoreState()
+    c.setStrokeColor(Color(0, 0, 0, alpha=0.12))
+    c.setLineWidth(0.7)
+    c.roundRect(x, y, width, height, radius, fill=0, stroke=1)
 
 
 def footer(c: canvas.Canvas, page_no: int, accent: Color, section: str = "") -> None:
@@ -201,8 +223,30 @@ def info_page(c: canvas.Canvas, page_no: int, title: str, kicker: str, intro: st
     c.showPage()
 
 
+def image_intro_page(c: canvas.Canvas, page_no: int, title: str, kicker: str, intro: str,
+                     cards: list[tuple[str, str]], image_path: Path, cfg: dict) -> None:
+    y = title_block(c, page_no, title, kicker, cfg)
+    image_h = 205
+    cropped_image(c, image_path, 28, y - image_h, W - 56, image_h, 12, 0.5)
+    c.setFont("MPSans", 6.2)
+    c.setFillColor(HexColor("#6B6862"))
+    c.drawRightString(W - 28, y - image_h - 11, "IMAGEM ILUSTRATIVA")
+    y -= image_h + 29
+    y = paragraph(c, intro, 28, y, W - 56, "MPSans", 8.8, 11.5, cfg["ink"], 4) - 9
+    for card_title, body in cards:
+        shadow_card(c, 28, y - 42, W - 56, 39, HexColor("#FFFDF9"), 8)
+        c.setFillColor(cfg["accent"])
+        c.circle(45, y - 22, 5, fill=1, stroke=0)
+        c.setFillColor(cfg["ink"])
+        c.setFont("MPSerif-Bold", 9.5)
+        c.drawString(58, y - 17, card_title)
+        paragraph(c, body, 58, y - 29, W - 98, "MPSans", 6.9, 8.3, cfg["ink"], 2)
+        y -= 46
+    c.showPage()
+
+
 def summary_page(c: canvas.Canvas, page_no: int, categories: list[str], counts: list[int],
-                 first_category_page: int, cfg: dict) -> None:
+                 first_category_page: int, cfg: dict, category_front_pages: int = 1) -> None:
     y = title_block(c, page_no, "Sumário", "Organização", cfg)
     paragraph(c, "As receitas estão agrupadas por ocasião e tipo de preparo para facilitar a consulta.",
               28, y, W - 56, "MPSans", 9.2, 13, cfg["ink"], 3)
@@ -222,8 +266,51 @@ def summary_page(c: canvas.Canvas, page_no: int, categories: list[str], counts: 
         c.drawString(88, y - 49, f"{count} receitas")
         c.setFont("MPSans-Bold", 8)
         c.drawRightString(W - 42, y - 35, f"p. {running}")
-        running += count + 1
+        running += count + category_front_pages
         y -= 70
+    c.showPage()
+
+
+def category_photo_page(c: canvas.Canvas, page_no: int, number: int, name: str,
+                        recipe_count: int, image_path: Path, cfg: dict) -> None:
+    bg, ink, accent, metallic = cfg["bg"], cfg["ink"], cfg["accent"], cfg["metallic"]
+    c.setFillColor(bg)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    c.setFillColor(accent)
+    c.rect(0, H - 105, W, 105, fill=1, stroke=0)
+    c.setFillColor(white)
+    c.setFont("MPSans-Bold", 7.8)
+    c.drawString(28, H - 34, f"CATEGORIA {number:02d}")
+    title_lines = wrap(name, "MPSerif-Bold", 24, W - 118)
+    draw_lines(c, title_lines, 28, H - 61, "MPSerif-Bold", 24, 27, white, 2)
+    c.setFillColor(metallic)
+    c.circle(W - 66, H - 54, 27, fill=1, stroke=0)
+    c.setFillColor(ink)
+    c.setFont("MPSerif-Bold", 18)
+    c.drawCentredString(W - 66, H - 49, str(recipe_count))
+    c.setFont("MPSans", 6.1)
+    c.drawCentredString(W - 66, H - 61, "RECEITAS")
+    image_y = 250
+    image_h = 222
+    cropped_image(c, image_path, 28, image_y, W - 56, image_h, 12, 0.5)
+    c.setFont("MPSans", 6.2)
+    c.setFillColor(HexColor("#6B6862"))
+    c.drawRightString(W - 28, image_y - 11, "IMAGEM ILUSTRATIVA DA CATEGORIA")
+    shadow_card(c, 28, 65, W - 56, 150, HexColor("#FFFDF9"), 11)
+    c.setFillColor(accent)
+    c.setFont("MPSerif-Bold", 14)
+    c.drawString(43, 185, "Abra a categoria e escolha")
+    paragraph(
+        c,
+        "A fotografia apresenta o clima culinário desta seção. Nas páginas seguintes, o índice completo mantém todos os títulos organizados antes das receitas.",
+        43, 165, W - 86, "MPSans", 8.2, 11, ink, 4,
+    )
+    c.setFillColor(metallic)
+    c.setFont("MPSans-Bold", 7.2)
+    c.drawString(43, 101, f"{recipe_count} RECEITAS • UMA POR PÁGINA")
+    paragraph(c, "Consulte rendimento, tempo e temperatura no topo de cada preparo.",
+              43, 85, W - 86, "MPSans", 7.3, 9.2, ink, 2)
+    footer(c, page_no, accent, name)
     c.showPage()
 
 
@@ -236,7 +323,7 @@ def category_page(c: canvas.Canvas, page_no: int, number: int, name: str,
     c.rect(0, H - 95, W, 95, fill=1, stroke=0)
     c.setFillColor(white)
     c.setFont("MPSans-Bold", 8)
-    c.drawString(28, H - 34, f"CATEGORIA {number:02d}")
+    c.drawString(28, H - 34, f"ÍNDICE DA CATEGORIA {number:02d}")
     c.setFont("MPSerif-Bold", 25)
     title_lines = wrap(name, "MPSerif-Bold", 25, W - 56)
     draw_lines(c, title_lines, 28, H - 61, "MPSerif-Bold", 25, 28, white, 2)
@@ -251,7 +338,7 @@ def category_page(c: canvas.Canvas, page_no: int, number: int, name: str,
     y = H - 132
     c.setFillColor(ink)
     c.setFont("MPSerif-Bold", 13)
-    c.drawString(43, y, "O que você encontra aqui")
+    c.drawString(43, y, "Receitas desta categoria")
     y -= 24
     columns = 2 if len(recipes) > 12 else 1
     per_col = (len(recipes) + columns - 1) // columns
@@ -264,7 +351,7 @@ def category_page(c: canvas.Canvas, page_no: int, number: int, name: str,
         c.setFillColor(accent)
         c.circle(x + 3, ry + 2, 2.3, fill=1, stroke=0)
         c.setFillColor(ink)
-        size = 7.4 if columns == 2 else 8.2
+        size = 8.2 if columns == 2 else 8.8
         lines = wrap(recipe.title, "MPSans", size, col_width - 18)
         draw_lines(c, lines, x + 11, ry + 5, "MPSans", size, size + 2, ink, 2)
     footer(c, page_no, accent, name)
@@ -374,6 +461,15 @@ def export_source(path: Path, recipes: list[Recipe], categories: list[str]) -> N
 
 
 def fit_pdf(path: Path) -> int:
+    illustrations = ROOT / "products" / "50-fit-low-carb" / "assets" / "illustrations"
+    opening_image = illustrations / "frango_grelhado_com_legumes_assados.jpg"
+    category_images = {
+        FIT_CATEGORIES[0]: opening_image,
+        FIT_CATEGORIES[1]: illustrations / "legumes_assados_com_ervas_e_azeite.jpg",
+        FIT_CATEGORIES[2]: illustrations / "travessa_de_fritadas_legumes_e_queijo.jpg",
+        FIT_CATEGORIES[3]: illustrations / "pequeno_almoco_saudavel_com_legumes_e_abacate.jpg",
+        FIT_CATEGORIES[4]: illustrations / "sobremesas_de_chocolate_com_framboesas.jpg",
+    }
     cfg = {
         "bg": HexColor("#F5F0E7"), "ink": HexColor("#173A32"),
         "accent": HexColor("#2F755B"), "metallic": HexColor("#D88A35"),
@@ -388,11 +484,12 @@ def fit_pdf(path: Path) -> int:
     page = 1
     cover(c, cfg); page += 1
     legal_page(c, page, cfg, "50 Receitas Fit e Low Carb para Air Fryer"); page += 1
-    info_page(c, page, "Bem-vindo a uma cozinha mais leve", "Apresentação",
-              "Este e-book reúne ideias culinárias práticas para variar o cardápio na Air Fryer. O foco é sabor, organização e ingredientes acessíveis, sem promessas médicas ou nutricionais.",
-              [("Receitas do dia a dia", "Porções objetivas, ingredientes encontrados no Brasil e preparos pensados para a rotina."),
-               ("Leve é um estilo culinário", "As escolhas são variadas; adapte ingredientes às suas preferências e necessidades pessoais."),
-               ("Consulte durante o preparo", "Cada receita ocupa uma página, com rendimento, tempo e temperatura em destaque.")], cfg); page += 1
+    image_intro_page(c, page, "Bem-vindo a uma cozinha mais leve", "Apresentação",
+                     "Este e-book reúne ideias culinárias práticas para variar o cardápio na Air Fryer. O foco é sabor, organização e ingredientes acessíveis, sem promessas médicas ou nutricionais.",
+                     [("Receitas do dia a dia", "Porções objetivas, ingredientes encontrados no Brasil e preparos pensados para a rotina."),
+                      ("Leve é um estilo culinário", "As escolhas são variadas; adapte ingredientes às suas preferências e necessidades pessoais."),
+                      ("Consulte durante o preparo", "Cada receita ocupa uma página, com rendimento, tempo e temperatura em destaque.")],
+                     opening_image, cfg); page += 1
     info_page(c, page, "Antes de começar", "Introdução",
               "Separe ingredientes, confira o tamanho da cesta e leia a receita inteira. A organização reduz interrupções e ajuda a obter resultados consistentes.",
               [("Primeiro teste", "Na primeira execução, verifique o alimento alguns minutos antes do tempo indicado."),
@@ -404,10 +501,11 @@ def fit_pdf(path: Path) -> int:
                ("Espaço na cesta", "Não compacte alimentos. Prepare em duas levas quando não houver espaço para o ar circular."),
                ("Virar ou mexer", "Cubos, legumes, petiscos e empanados douram de modo mais uniforme quando virados na metade."),
                ("Ajuste de tempo", "O tempo pode variar conforme o modelo e a potência da sua Air Fryer. Observe textura e ponto.")], cfg); page += 1
-    summary_page(c, page, FIT_CATEGORIES, [10] * 5, page + 1, cfg); page += 1
+    summary_page(c, page, FIT_CATEGORIES, [10] * 5, page + 1, cfg, category_front_pages=2); page += 1
     global_no = 1
     for cat_no, category in enumerate(FIT_CATEGORIES, 1):
         items = [r for r in FIT_RECIPES if r.category == category]
+        category_photo_page(c, page, cat_no, category, len(items), category_images[category], cfg); page += 1
         category_page(c, page, cat_no, category, items, cfg); page += 1
         for recipe in items:
             recipe_page(c, page, global_no, recipe, cfg); page += 1; global_no += 1
@@ -423,6 +521,14 @@ def fit_pdf(path: Path) -> int:
 
 
 def special_pdf(path: Path) -> int:
+    illustrations = ROOT / "products" / "100-receitas-extras" / "assets" / "illustrations"
+    opening_image = illustrations / "banquete_dourado_da_air_fryer.jpg"
+    category_images = {
+        SPECIAL_CATEGORIES[0]: illustrations / "petiscos_crocantes_para_partilhar.jpg",
+        SPECIAL_CATEGORIES[1]: illustrations / "banquete_rustico_de_carne_e_batatas.jpg",
+        SPECIAL_CATEGORIES[2]: illustrations / "banquete_caseiro_com_massa_e_legumes_recheados.jpg",
+        SPECIAL_CATEGORIES[3]: illustrations / "sobremesas_de_chocolate_em_luz_aconchegante.jpg",
+    }
     cfg = {
         "bg": HexColor("#F4EDE2"), "ink": HexColor("#1E1E1E"),
         "accent": HexColor("#D85B1E"), "metallic": HexColor("#C69A47"),
@@ -437,11 +543,12 @@ def special_pdf(path: Path) -> int:
     page = 1
     cover(c, cfg); page += 1
     legal_page(c, page, cfg, "100 Receitas Extras para Air Fryer - Edição Especial"); page += 1
-    info_page(c, page, "Uma edição para ampliar possibilidades", "Apresentação",
-              "Receitas recheadas, gratinadas, empanadas e completas dão nova vida à Air Fryer sem transformar a cozinha em um projeto complicado.",
-              [("Mais variedade", "Quatro capítulos equilibram petiscos, proteínas, refeições completas e sobremesas especiais."),
-               ("Ingredientes possíveis", "As combinações têm apresentação caprichada, mas usam técnicas e compras acessíveis."),
-               ("Uma receita por página", "Consulta rápida, bom contraste e leitura confortável em tela pequena.")], cfg); page += 1
+    image_intro_page(c, page, "Uma edição para ampliar possibilidades", "Apresentação",
+                     "Receitas recheadas, gratinadas, empanadas e completas dão nova vida à Air Fryer sem transformar a cozinha em um projeto complicado.",
+                     [("Mais variedade", "Quatro capítulos equilibram petiscos, proteínas, refeições completas e sobremesas especiais."),
+                      ("Ingredientes possíveis", "As combinações têm apresentação caprichada, mas usam técnicas e compras acessíveis."),
+                      ("Uma receita por página", "Consulta rápida, bom contraste e leitura confortável em tela pequena.")],
+                     opening_image, cfg); page += 1
     info_page(c, page, "Como aproveitar esta edição", "Introdução",
               "Escolha uma receita principal, organize os acompanhamentos e confirme se a forma ou refratário cabe com folga na cesta.",
               [("Leia antes", "Algumas receitas partem de arroz, massa, carne ou legumes previamente cozidos; prepare essa etapa primeiro."),
@@ -471,10 +578,11 @@ def special_pdf(path: Path) -> int:
                ("Jantar aconchegante", "Bruschetta de cogumelos + ravióli assado + cheesecake de banana."),
                ("Mesa brasileira", "Bolinho de mandioca + lombo com barbecue de goiabada + brigadeirão de café."),
                ("Fim de semana", "Roseta de calabresa + frango hasselback caprese + brownie cheesecake de framboesa.")], cfg); page += 1
-    summary_page(c, page, SPECIAL_CATEGORIES, [25] * 4, page + 1, cfg); page += 1
+    summary_page(c, page, SPECIAL_CATEGORIES, [25] * 4, page + 1, cfg, category_front_pages=2); page += 1
     global_no = 1
     for cat_no, category in enumerate(SPECIAL_CATEGORIES, 1):
         items = [r for r in SPECIAL_RECIPES if r.category == category]
+        category_photo_page(c, page, cat_no, category, len(items), category_images[category], cfg); page += 1
         category_page(c, page, cat_no, category, items, cfg); page += 1
         for recipe in items:
             recipe_page(c, page, global_no, recipe, cfg); page += 1; global_no += 1
@@ -493,8 +601,14 @@ def main() -> None:
         (product_root / "dist").mkdir(parents=True, exist_ok=True)
     export_source(fit_root / "source" / "receitas.json", FIT_RECIPES, FIT_CATEGORIES)
     export_source(special_root / "source" / "receitas.json", SPECIAL_RECIPES, SPECIAL_CATEGORIES)
-    (fit_root / "assets" / "README.md").write_text("Design vetorial original, sem fotografias ou ativos de terceiros.\n", encoding="utf-8")
-    (special_root / "assets" / "README.md").write_text("Design vetorial original, sem fotografias ou ativos de terceiros.\n", encoding="utf-8")
+    (fit_root / "assets" / "README.md").write_text(
+        "Design editorial vetorial com fotografias fornecidas pelo proprietário do projeto em assets/illustrations/.\n",
+        encoding="utf-8",
+    )
+    (special_root / "assets" / "README.md").write_text(
+        "Design editorial vetorial com fotografias fornecidas pelo proprietário do projeto em assets/illustrations/.\n",
+        encoding="utf-8",
+    )
     fit_path = fit_root / "dist" / "50-receitas-fit-low-carb-airfryer.pdf"
     special_path = special_root / "dist" / "100-receitas-extras-airfryer.pdf"
     fit_pages = fit_pdf(fit_path)
