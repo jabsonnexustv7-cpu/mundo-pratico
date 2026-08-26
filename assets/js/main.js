@@ -11,6 +11,19 @@
     'utm_term'
   ];
 
+  function addPreconnect(href) {
+    if (document.head.querySelector(`link[rel="preconnect"][href="${href}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'preconnect';
+    link.href = href;
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  }
+
+  // Antecipa DNS/TLS com a infraestrutura da Hotmart enquanto o visitante ainda lê a página.
+  addPreconnect('https://pay.hotmart.com');
+  addPreconnect('https://checkout.hotmart.com');
+
   function getCheckoutUrl() {
     const destination = new URL(CHECKOUT_URL);
     const currentParams = new URLSearchParams(window.location.search);
@@ -29,9 +42,9 @@
   checkoutLinks.forEach((link) => {
     link.href = getCheckoutUrl();
 
-    link.addEventListener('click', (event) => {
-      const destination = getCheckoutUrl();
-      link.href = destination;
+    link.addEventListener('click', () => {
+      // Não bloqueia a navegação: o navegador segue o href imediatamente.
+      link.href = getCheckoutUrl();
 
       if (typeof window.fbq === 'function') {
         window.fbq('track', 'InitiateCheckout', {
@@ -40,12 +53,6 @@
           currency: 'BRL'
         });
       }
-
-      const opensSeparately = event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || link.target === '_blank';
-      if (opensSeparately) return;
-
-      event.preventDefault();
-      window.setTimeout(() => window.location.assign(destination), 180);
     });
   });
 })();
