@@ -2,6 +2,9 @@
 
 Landing page estática do e-book **200 Receitas para Air Fryer**, construída com HTML, CSS e JavaScript vanilla e preparada para hospedagem no GitHub Pages.
 
+- Site: `https://mundopraticodigital.com.br/`
+- Landing page: `https://mundopraticodigital.com.br/airfryer/`
+
 ## Estrutura
 
 ```text
@@ -66,10 +69,4 @@ O projeto usa caminhos relativos e funciona em Pages, inclusive quando publicado
 
 ## Domínio próprio
 
-Quando houver domínio:
-
-1. Configure o domínio em **Settings → Pages → Custom domain**.
-2. Ajuste os registros DNS conforme o GitHub informar.
-3. Ative HTTPS depois da propagação.
-4. Em `airfryer/index.html`, transforme `og:image` em URL absoluta e adicione `og:url`.
-5. Revise as páginas legais e acrescente dados oficiais de contato/controlador.
+O domínio configurado é `mundopraticodigital.com.br`, persistido pelo arquivo `CNAME`. No Registro.br, o domínio raiz deve apontar para os quatro IPs do GitHub Pages e `www` deve ser um CNAME para `jabsonnexustv7-cpu.github.io`. Depois da propagação, ative **Enforce HTTPS** em **Settings → Pages**.
