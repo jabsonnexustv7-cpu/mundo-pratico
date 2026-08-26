@@ -106,15 +106,12 @@ h1, h2 { font-family: var(--serif); }
 .offer-summary p:last-child { margin: 0; font-size: .83rem; }
 .acceptance__copy { min-width: 0; }
 .offer-tag { display: inline-block; margin-bottom: 14px; padding: 7px 11px; border: 1px solid rgba(234,211,165,.35); border-radius: 999px; color: var(--gold-soft); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.acceptance__copy h3 { margin: 0 0 12px; font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.05; }
-.acceptance__copy > p { margin: 0 0 24px; }
-.hotmart-slot { width: 100%; min-height: 122px; margin: 0; padding: 25px; display: grid; place-items: center; gap: 8px; border: 2px dashed #d9ac55; border-radius: 14px; background: #171411; text-align: center; }
-.hotmart-slot strong { color: #fff; }
-.hotmart-slot code { max-width: 100%; color: #f0cf8b; font-size: .78rem; overflow-wrap: anywhere; }
-.decline { margin-top: 25px; text-align: center; }
-.decline p { margin: 0 0 9px; color: #aaa099; font-size: .8rem; }
-.decline-slot { min-height: 48px; padding: 13px; display: grid; place-items: center; border: 1px dashed rgba(255,255,255,.23); border-radius: 9px; background: rgba(0,0,0,.14); }
-.decline-slot code { max-width: 100%; color: #aaa099; font-size: .68rem; overflow-wrap: anywhere; }
+.acceptance__copy h3 { margin: 0 0 20px; font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.05; }
+.acceptance__copy > p { margin: 0 0 15px; }
+.hotmart-widget-shell { width: 100%; max-width: 100%; min-width: 0; margin: 0; overflow: visible; }
+#hotmart-sales-funnel { width: 100%; max-width: 100%; min-width: 0; }
+#hotmart-sales-funnel > * { max-width: 100%; }
+#hotmart-sales-funnel iframe { width: 100% !important; max-width: 100% !important; min-width: 0 !important; display: block; }
 .site-footer { padding: 34px 0; border-top: 1px solid var(--line); background: var(--paper); }
 .site-footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand--footer { font-size: .68rem; }
@@ -166,5 +163,5 @@ h1, h2 { font-family: var(--serif); }
   .category-card h3 { margin-top: 55px; }
   .food-stack { padding: 0 20px 30px 0; }
   .total-callout { padding: 19px; }
-  .hotmart-slot { padding: 20px 14px; }
+  .hotmart-widget-shell, #hotmart-sales-funnel { width: 100%; max-width: 100%; min-width: 0; }
 }

@@ -184,25 +184,20 @@
 
         <div class="acceptance__copy">
           <span class="offer-tag">Condição desta etapa do pedido</span>
-          <h3>Quero adicionar as 100 receitas extras</h3>
           <p>O aceite, a cobrança adicional e a navegação para a próxima etapa serão controlados pelo componente oficial do Funil de Vendas da Hotmart.</p>
+          <h3>Adicione agora a Edição Especial ao seu pedido</h3>
 
-          <!-- HOTMART UPSELL WIDGET START -->
-          <!-- Substitua somente o conteúdo do elemento abaixo pelo código oficial fornecido no Funil de Vendas da Hotmart. -->
-          <div id="hotmart-upsell-widget" class="hotmart-slot" aria-label="Local reservado para o widget oficial de aceite da Hotmart">
-            <strong>Componente oficial de aceite da Hotmart</strong>
-            <code>{{HOTMART_UPSELL_WIDGET}}</code>
-          </div>
-          <!-- HOTMART UPSELL WIDGET END -->
+          <div class="hotmart-widget-shell">
+            <!-- HOTMART - Sales Funnel Widget -->
+            <!-- sales funnel container -->
+            <div id="hotmart-sales-funnel"></div>
 
-          <div class="decline">
-            <p>Não, obrigado. Quero continuar apenas com minhas 200 receitas.</p>
-            <!-- HOTMART UPSELL DECLINE COMPONENT START -->
-            <!-- Substitua somente o conteúdo do elemento abaixo pelo componente oficial de recusa da Hotmart. -->
-            <div id="hotmart-upsell-decline" class="decline-slot" aria-label="Local reservado para o componente oficial de recusa da Hotmart">
-              <code>{{HOTMART_UPSELL_DECLINE_COMPONENT}}</code>
-            </div>
-            <!-- HOTMART UPSELL DECLINE COMPONENT END -->
+            <!-- script load and setup -->
+            <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+            <script>
+              checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+            </script>
+            <!-- HOTMART - Sales Funnel Widget -->
           </div>
         </div>
       </div>
