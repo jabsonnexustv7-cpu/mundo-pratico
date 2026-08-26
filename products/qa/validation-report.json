@@ -1,0 +1,71 @@
+{
+  "fit_catalog": {
+    "name": "50 Receitas Fit e Low Carb",
+    "recipe_count": 50,
+    "category_counts": {
+      "Frangos e Carnes": 10,
+      "Legumes e Acompanhamentos": 10,
+      "Lanches Low Carb": 10,
+      "Café da Manhã e Refeições Rápidas": 10,
+      "Doces e Sobremesas Fit": 10
+    },
+    "exact_duplicate_titles": [],
+    "near_duplicate_titles": [],
+    "ingredient_reference_warnings": [],
+    "issues": []
+  },
+  "special_catalog": {
+    "name": "100 Receitas Extras - Edição Especial",
+    "recipe_count": 100,
+    "category_counts": {
+      "Lanches e Salgados": 25,
+      "Carnes e Frangos": 25,
+      "Refeições Rápidas": 25,
+      "Doces e Sobremesas": 25
+    },
+    "exact_duplicate_titles": [],
+    "near_duplicate_titles": [],
+    "ingredient_reference_warnings": [],
+    "issues": []
+  },
+  "cross_product_near_duplicates": [],
+  "original_comparison": {
+    "original_title_count": 200,
+    "new_title_count": 150,
+    "exact_matches": [],
+    "manual_similarity_review": []
+  },
+  "fit_pdf": {
+    "path": "C:\\Users\\jabso\\Documents\\Codex\\2026-08-26\\use-o-pdf-final-do-produto\\products\\50-fit-low-carb\\dist\\50-receitas-fit-low-carb-airfryer.pdf",
+    "page_count": 63,
+    "expected_pages": 63,
+    "missing_recipe_titles": [],
+    "blank_pages": [],
+    "page_box_variants": [
+      [
+        0.0,
+        0.0,
+        419.53,
+        595.28
+      ]
+    ],
+    "valid": true
+  },
+  "special_pdf": {
+    "path": "C:\\Users\\jabso\\Documents\\Codex\\2026-08-26\\use-o-pdf-final-do-produto\\products\\100-receitas-extras\\dist\\100-receitas-extras-airfryer.pdf",
+    "page_count": 114,
+    "expected_pages": 114,
+    "missing_recipe_titles": [],
+    "blank_pages": [],
+    "page_box_variants": [
+      [
+        0.0,
+        0.0,
+        419.53,
+        595.28
+      ]
+    ],
+    "valid": true
+  },
+  "valid": true
+}

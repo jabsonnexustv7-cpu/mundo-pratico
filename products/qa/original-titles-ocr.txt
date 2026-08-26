@@ -1,0 +1,200 @@
+001	Pao de queijo express
+002	Ovos cremosos no ramequim
+003	Mini omelete de presunto e queijo
+004	Banana assada com canela
+005	Macacomaveiacrocante
+006	Granola caseira rapida
+007	Torrada de alho e queijo
+008	Pao frances crocante com manteiga
+009	Cestinhadepao com ovo
+010	Bolinho de banana e aveia
+011	Muffin de maca e canela
+012	Queijo coalho dourado
+013	Sanduichequenteclassico
+014	Hash brown debatata
+015	Tomateassadocomovo
+016	Pao doce de banana
+017	Croissant de queijo aquecido
+018	Mini frittata de legumes
+019	Pera assada com mel
+020	Biscoitinho de aveia para o cafe
+021	Mini pizza de pao sirio
+022	Wrap crocante de frango e queijo
+023	Quesadilladequeijoetomate
+024	Hot dog gratinado
+025	Bauru crocante
+026	Paodealhorecheado
+027	Tortilla chips caseiros
+028	Pao de queijo com peito de peru
+029	Bruschetta de tomate
+030	Bruschetta de queijo e pesto
+031	Sanduiche de atum gratinado
+032	Pao com calabresa e queijo
+033	Enroladinho de tortilla e queijo
+034	Mini misto no pao de leite
+035	Tostexdepeitodeperu
+036	Nachos gratinados
+037	Pao italiano com queijo e ervas
+038	Rolinhos de presunto e queijo
+039	Pita recheada com queijo e milho
+040	Pao na chapa com requeijao
+041	Frango em cubos com alho e ervas
+042	Frango em cubos com paprica defumada
+043	Frango em cubos com limao e orégano
+044	Frango em cubos com mostarda
+045	Frango em cubos ao curry
+046	Frango em cubos com chimichurri
+047	Frango em cubos com parmesao
+048	Frango em cubos picante
+049	Coxinhas da asa com alho e limao
+050	Coxinhas da asa barbecue
+051	Coxinhas da asa com mostarda e mel
+052	Coxinhas da asa picantes
+053	Iscas de frango com parmesao
+054	Frango crocante com corn flakes
+055	Nuggets caseiros de frango
+056	Sobrecoxa desossada dourada
+057	Espetinho de frango e cebola
+058	Almondegasdefrango
+059	Filé de frango recheado com queijo
+060	Frango com bacon em medalhoes
+061	Hamburguer caseiro classico
+062	Hamburguer com cebola
+063	Hamburguer com parmesao
+064	Bife acebolado rapido
+065	Tirinhas de carne com alho
+066	Kafta bovina
+067	Almondegas bovinas
+068	Bisteca suina com limao
+069	Bisteca suina com mostarda
+070	Lombo suino em medalhoes
+071	Costelinhabarbecue
+072	Panceta crocante em cubos
+073	Linguica acebolada
+074	Linguica com pimentoes
+075	Calabresa crocante
+076	Medalhao de carne combacon
+077	Carne suina agridoce em cubos
+078	Espetinho bovino com pimentao
+079	Rocambole de carne individual
+080	Torresmo pratico
+081	Tilapia com limao e alho
+082	Tilapia com paprica e orégano
+083	Merluza com limao e salsinha
+084	Pescada com ervas
+085	Salmao com limao
+086	Salmao com mostarda e mel
+087	Linguado com ervas
+088	Cacao com paprica
+089	Tilapia empanada crocante
+090	Iscas de peixe empanadas
+091	Camarao com alho
+092	Camarao com paprica
+093	Espetinho de camarao e pimentao
+094	Bolinho de atum
+095	Bolinho de sardinha
+096	Sardinha fresca com limao
+097	Salmao com crosta de parmesao
+098	Peixe ao molho de tomate em ramequim
+099	Lula em anéis com alho
+100	Camaraocom cococrocante
+101	Brocolis com alho
+102	Couve-flor com paprica
+103	Abobrinha comparmesao
+104	Berinjela temperada
+105	Cenoura commele ervas
+106	Vagem tostada
+107	Pimentoes assados
+108	Cogumelos com alho
+109	Milho na espiga dourado
+110	Tomate recheado com queijo
+111	Abobrinharecheadacomricota
+112	Berinjela a parmegiana individual
+113	Palmito gratinado
+114	Queijo minas com tomate
+115	Falafel rapido
+116	Bolinho de grao-de-bico
+117	Tofu crocante com shoyu
+118	Couve crocante
+119	Chips de abobrinha
+120	Mix de legumes mediterraneos
+121	Batata rustica com paprica
+122	Batata palito caseira
+123	Batatabolinha com alecrim
+124	Batata com parmesao
+125	Batata doce em palitos
+126	Batata doce com canela
+127	Mandioca crocante
+128	Polenta crocante
+129	Nhoque crocante
+130	Arroz gratinado individual
+131	Farofacrocantedecebola
+132	Grao-de-bico crocante
+133	Feijao-branco crocante com ervas
+134	Croutons de alho
+135	Cebola assada em petalas
+136	Alho inteiro assado
+137	Tomatinhos confitados rapidos
+138	Abobora cabotia em cubos
+139	Chips de batata-doce
+140	Chips de mandioca cozida
+141	Coxinha da asa crocante deboteco
+142	Bolinha de queijo
+143	Risoles de presunto e queijo
+144	Pastel de queijo
+145	Pastel de carne
+146	Enroladinho de salsicha
+147	Dadinho de tapioca
+148	Provolonecrocante
+149	Palitosdemussarelaempanados
+150	Onion rings
+151	Mini kibe
+152	Bolinho de arroz
+153	Bolinho de mandioca com queijo
+154	Bolinho de bacalhau pratico
+155	Empada express em forminha
+156	Mini esfiha aberta
+157	Pao de alho com calabresa
+158	Amendoimtemperado
+159	Castanhas temperadas
+160	Milhocrocantetemperado
+161	Paodealhocaseiro
+162	Pao de queijo de 3 ingredientes
+163	Paozinho de iogurte
+164	Focaccia individual
+165	Mini pao de pizza
+166	Pao recheado de presunto e queijo
+167	Calzone rapido
+168	Mini pizza marguerita
+169	Mini pizza decalabresa
+170	Lasanha individual
+171	Macarraogratinado
+172	Nhoque ao molho gratinado
+173	Raviolicrocante
+174	Capeletti crocante
+175	Pao pita crocante
+176	Grissini de massa de pastel
+177	Pao de cebola rapido
+178	Pao de ervas e parmesao
+179	Torta salgada individual de frango
+180	Torta salgada individual de legumes
+181	Brownie individual
+182	Cookie com gotas de chocolate
+183	Cookiedeaveiaebanana
+184	Banana caramelizada
+185	Banana com chocolate
+186	Maca recheada com canela
+187	Peracomchocolate
+188	Abacaxi com canela
+189	Pessego assado com mel
+190	Churros de pao de forma
+191	Rabanada rapida
+192	Pastel doce de banana
+193	Pasteldedocedeleite
+194	Mini bolo de cenoura
+195	Minibolodechocolate
+196	Bolodebananaindividual
+197	Muffin de chocolate
+198	Muffin de banana com gotas
+199	Crumble de maca
+200	Smore de biscoito

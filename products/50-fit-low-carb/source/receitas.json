@@ -1,0 +1,1233 @@
+{
+  "brand": "Mundo Prático",
+  "categories": [
+    "Frangos e Carnes",
+    "Legumes e Acompanhamentos",
+    "Lanches Low Carb",
+    "Café da Manhã e Refeições Rápidas",
+    "Doces e Sobremesas Fit"
+  ],
+  "recipe_count": 50,
+  "recipes": [
+    {
+      "title": "Cubos de frango ao limão-siciliano e sálvia",
+      "category": "Frangos e Carnes",
+      "description": "Uma combinação prática de cubos de frango com limão-siciliano e sálvia, feita em poucos passos.",
+      "yield_text": "3 porções",
+      "minutes": 24,
+      "temperature": 190,
+      "ingredients": [
+        "500 g de peito de frango em cubos",
+        "1 colher (sopa) de azeite",
+        "raspas e suco de 1/2 limão-siciliano",
+        "1 colher (chá) de sálvia seca",
+        "1 dente de alho amassado",
+        "sal e pimenta-do-reino a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque os cubos de frango em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 19 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Corte os cubos no mesmo tamanho para que terminem de assar juntos."
+    },
+    {
+      "title": "Sobrecoxa desossada com iogurte e cúrcuma",
+      "category": "Frangos e Carnes",
+      "description": "Uma combinação prática de sobrecoxas com iogurte, cúrcuma e limão, feita em poucos passos.",
+      "yield_text": "4 porções",
+      "minutes": 32,
+      "temperature": 190,
+      "ingredients": [
+        "600 g de sobrecoxas de frango desossadas",
+        "3 colheres (sopa) de iogurte natural",
+        "1 colher (chá) de cúrcuma",
+        "1/2 colher (chá) de cominho",
+        "1 colher (sopa) de suco de limão",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque as sobrecoxas em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 27 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Retire o excesso de marinada antes de levar à cesta para dourar melhor."
+    },
+    {
+      "title": "Almôndegas de frango, abobrinha e hortelã",
+      "category": "Frangos e Carnes",
+      "description": "Almôndegas bem temperado com abobrinha e hortelã, ideal para uma refeição descomplicada.",
+      "yield_text": "14 unidades",
+      "minutes": 25,
+      "temperature": 190,
+      "ingredients": [
+        "500 g de frango moído",
+        "1/2 abobrinha ralada e espremida",
+        "2 colheres (sopa) de farelo de aveia",
+        "1 colher (sopa) de hortelã picada",
+        "1 ovo",
+        "1/2 colher (chá) de páprica",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque as almôndegas em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 20 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Esprema muito bem a abobrinha para as almôndegas manterem o formato."
+    },
+    {
+      "title": "Filé suíno com crosta de mostarda e linhaça",
+      "category": "Frangos e Carnes",
+      "description": "Filés suínos bem temperado com mostarda, linhaça e alecrim, ideal para uma refeição descomplicada.",
+      "yield_text": "3 porções",
+      "minutes": 26,
+      "temperature": 190,
+      "ingredients": [
+        "500 g de filé-mignon suíno em medalhões",
+        "1 colher (sopa) de mostarda",
+        "2 colheres (sopa) de linhaça dourada moída",
+        "1 colher (chá) de alecrim",
+        "1 colher (sopa) de azeite",
+        "sal e pimenta-do-reino a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque os filés suínos em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 21 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Pressione a linhaça sobre a carne para formar uma crosta uniforme."
+    },
+    {
+      "title": "Kafta de patinho com tahine e cheiro-verde",
+      "category": "Frangos e Carnes",
+      "description": "Uma combinação prática de kaftas com tahine, cominho e cheiro-verde, feita em poucos passos.",
+      "yield_text": "8 unidades",
+      "minutes": 23,
+      "temperature": 200,
+      "ingredients": [
+        "500 g de patinho moído",
+        "1 colher (sopa) de tahine",
+        "2 colheres (sopa) de cheiro-verde picado",
+        "1/2 cebola pequena ralada",
+        "1/2 colher (chá) de cominho",
+        "sal e pimenta-síria a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 200 °C por 3 minutos.",
+        "Coloque as kaftas em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 18 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Modele porções finas para que cozinhem por dentro sem ressecar."
+    },
+    {
+      "title": "Iscas de carne com pimentão e chimichurri",
+      "category": "Frangos e Carnes",
+      "description": "Iscas de carne ganha sabor com pimentões e chimichurri e fica dourado sem complicação.",
+      "yield_text": "3 porções",
+      "minutes": 20,
+      "temperature": 200,
+      "ingredients": [
+        "450 g de coxão mole em tiras",
+        "1/2 pimentão vermelho em tiras",
+        "1/2 pimentão amarelo em tiras",
+        "1 colher (sopa) de azeite",
+        "1 colher (chá) de chimichurri",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 200 °C por 3 minutos.",
+        "Coloque as iscas de carne em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 15 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Se a cesta for pequena, faça duas levas para a carne selar em vez de cozinhar no vapor."
+    },
+    {
+      "title": "Rolinhos de frango com ricota e espinafre",
+      "category": "Frangos e Carnes",
+      "description": "Filés de frango recebe um recheio de ricota, espinafre e noz-moscada e vai direto para a Air Fryer.",
+      "yield_text": "4 unidades",
+      "minutes": 31,
+      "temperature": 190,
+      "ingredients": [
+        "4 filés finos de peito de frango",
+        "120 g de ricota amassada",
+        "1/2 xícara (chá) de espinafre picado",
+        "1 colher (chá) de azeite",
+        "1 pitada de noz-moscada",
+        "sal e pimenta-do-reino a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Prepare os filés de frango para receber o recheio, retirando excesso de umidade quando necessário.",
+        "Misture os ingredientes do recheio até obter uma textura uniforme e prove o tempero.",
+        "Recheie as porções sem apertar demais e acomode-as em recipiente que caiba na cesta.",
+        "Asse por 23 minutos, até o centro estar quente e a superfície dourada."
+      ],
+      "tip": "Prenda cada rolinho com palitos e lembre-se de removê-los antes de servir."
+    },
+    {
+      "title": "Hambúrguer de peru com aveia e páprica",
+      "category": "Frangos e Carnes",
+      "description": "Hambúrgueres bem temperado com aveia, páprica e cebola, ideal para uma refeição descomplicada.",
+      "yield_text": "4 unidades",
+      "minutes": 22,
+      "temperature": 190,
+      "ingredients": [
+        "500 g de peito de peru moído",
+        "3 colheres (sopa) de aveia em flocos finos",
+        "2 colheres (sopa) de cebola ralada",
+        "1 colher (chá) de páprica doce",
+        "1 colher (chá) de azeite",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque os hambúrgueres em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 17 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Faça uma pequena depressão no centro para o hambúrguer não estufar."
+    },
+    {
+      "title": "Asinhas com curry suave e leite de coco",
+      "category": "Frangos e Carnes",
+      "description": "Uma combinação prática de asinhas com curry, leite de coco e gengibre, feita em poucos passos.",
+      "yield_text": "4 porções",
+      "minutes": 35,
+      "temperature": 200,
+      "ingredients": [
+        "700 g de meio da asa de frango",
+        "3 colheres (sopa) de leite de coco",
+        "1 colher (chá) de curry suave",
+        "1/2 colher (chá) de gengibre ralado",
+        "1 colher (chá) de azeite",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 200 °C por 3 minutos.",
+        "Coloque as asinhas em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 30 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Seque as asinhas antes de temperar; a pele ficará mais dourada."
+    },
+    {
+      "title": "Mini rocambole de carne com cenoura e ervas",
+      "category": "Frangos e Carnes",
+      "description": "Uma receita caprichada de massa de carne, com cenoura, salsinha e queijo minas no centro.",
+      "yield_text": "4 porções",
+      "minutes": 34,
+      "temperature": 190,
+      "ingredients": [
+        "500 g de carne moída magra",
+        "1 cenoura pequena ralada",
+        "80 g de queijo minas padrão em tiras",
+        "2 colheres (sopa) de salsinha picada",
+        "2 colheres (sopa) de farelo de aveia",
+        "1 ovo",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Prepare a massa de carne para receber o recheio, retirando excesso de umidade quando necessário.",
+        "Misture os ingredientes do recheio até obter uma textura uniforme e prove o tempero.",
+        "Recheie as porções sem apertar demais e acomode-as em recipiente que caiba na cesta.",
+        "Asse por 26 minutos, até o centro estar quente e a superfície dourada."
+      ],
+      "tip": "Modele sobre papel-manteiga perfurado e retire o papel nos minutos finais."
+    },
+    {
+      "title": "Chuchu gratinado com ricota e castanha",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Camadas cremosas de chuchu cozido, finalizadas com ricota, castanha e noz-moscada.",
+      "yield_text": "4 porções",
+      "minutes": 23,
+      "temperature": 180,
+      "ingredients": [
+        "2 chuchus cozidos al dente em cubos",
+        "150 g de ricota amassada",
+        "3 colheres (sopa) de castanha-do-pará picada",
+        "30 g de parmesão ralado",
+        "1 pitada de noz-moscada",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 180 °C por 3 minutos.",
+        "Prepare o chuchu cozido e misture com os ingredientes cremosos e os temperos.",
+        "Transfira para um refratário baixo que caiba na cesta e nivele a superfície.",
+        "Espalhe os ingredientes da cobertura por cima, sem pressionar.",
+        "Asse por 18 minutos, até borbulhar nas bordas e dourar no centro."
+      ],
+      "tip": "Escorra e seque o chuchu para o gratinado não acumular água."
+    },
+    {
+      "title": "Berinjela assada com tahine e romã",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Um acompanhamento colorido de rodelas de berinjela, realçado por tahine, limão e sementes de romã.",
+      "yield_text": "3 porções",
+      "minutes": 22,
+      "temperature": 190,
+      "ingredients": [
+        "1 berinjela grande em rodelas de 1 cm",
+        "1 colher (sopa) de azeite",
+        "1 colher (sopa) de tahine",
+        "1 colher (sopa) de suco de limão",
+        "2 colheres (sopa) de sementes de romã",
+        "sal e cominho a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Seque bem as rodelas de berinjela e corte em tamanhos semelhantes para cozinhar por igual.",
+        "Misture com o azeite e os temperos, cobrindo todos os lados.",
+        "Asse por 17 minutos em uma só camada, mexendo na metade do tempo.",
+        "Ajuste o sal e finalize com os ingredientes reservados para servir."
+      ],
+      "tip": "Sirva o tahine e a romã apenas depois de assar para preservar o contraste de texturas."
+    },
+    {
+      "title": "Couve-flor dourada com cúrcuma e gergelim",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Um acompanhamento colorido de floretes de couve-flor, realçado por cúrcuma, gergelim e limão.",
+      "yield_text": "4 porções",
+      "minutes": 20,
+      "temperature": 200,
+      "ingredients": [
+        "500 g de couve-flor em floretes",
+        "1 colher (sopa) de azeite",
+        "1 colher (chá) de cúrcuma",
+        "1 colher (sopa) de gergelim",
+        "1 colher (sopa) de suco de limão",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 200 °C por 3 minutos.",
+        "Seque bem os floretes de couve-flor e corte em tamanhos semelhantes para cozinhar por igual.",
+        "Misture com o azeite e os temperos, cobrindo todos os lados.",
+        "Asse por 15 minutos em uma só camada, mexendo na metade do tempo.",
+        "Ajuste o sal e finalize com os ingredientes reservados para servir."
+      ],
+      "tip": "Mantenha os floretes de tamanho parecido e deixe espaço para o ar circular."
+    },
+    {
+      "title": "Brócolis gratinado com creme de ricota",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Camadas cremosas de floretes de brócolis, finalizadas com creme de ricota e parmesão.",
+      "yield_text": "3 porções",
+      "minutes": 20,
+      "temperature": 180,
+      "ingredients": [
+        "350 g de brócolis levemente cozido",
+        "120 g de creme de ricota",
+        "30 g de parmesão ralado",
+        "1 dente de alho ralado",
+        "1 pitada de noz-moscada",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 180 °C por 3 minutos.",
+        "Prepare os floretes de brócolis e misture com os ingredientes cremosos e os temperos.",
+        "Transfira para um refratário baixo que caiba na cesta e nivele a superfície.",
+        "Espalhe os ingredientes da cobertura por cima, sem pressionar.",
+        "Asse por 15 minutos, até borbulhar nas bordas e dourar no centro."
+      ],
+      "tip": "Use brócolis ainda firme, pois ele continuará cozinhando durante o gratinado."
+    },
+    {
+      "title": "Quiabo crocante com páprica defumada",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Quiabos ganha bordas tostadas e o aroma de páprica defumada e limão.",
+      "yield_text": "3 porções",
+      "minutes": 18,
+      "temperature": 200,
+      "ingredients": [
+        "350 g de quiabos inteiros e secos",
+        "1 colher (sopa) de azeite",
+        "1 colher (chá) de páprica defumada",
+        "1 colher (sopa) de suco de limão",
+        "1/2 colher (chá) de alho em pó",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 200 °C por 3 minutos.",
+        "Seque bem os quiabos e corte em tamanhos semelhantes para cozinhar por igual.",
+        "Misture com o azeite e os temperos, cobrindo todos os lados.",
+        "Asse por 13 minutos em uma só camada, mexendo na metade do tempo.",
+        "Ajuste o sal e finalize com os ingredientes reservados para servir."
+      ],
+      "tip": "Lave com antecedência e seque completamente para reduzir a umidade."
+    },
+    {
+      "title": "Cabotiá em gomos com canela e tomilho",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Gomos de abóbora dourado com canela, tomilho e pimenta, preservando boa textura.",
+      "yield_text": "4 porções",
+      "minutes": 26,
+      "temperature": 190,
+      "ingredients": [
+        "600 g de abóbora cabotiá em gomos finos",
+        "1 colher (sopa) de azeite",
+        "1/2 colher (chá) de canela",
+        "1 colher (chá) de tomilho",
+        "1 pitada de pimenta calabresa",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Seque bem os gomos de abóbora e corte em tamanhos semelhantes para cozinhar por igual.",
+        "Misture com o azeite e os temperos, cobrindo todos os lados.",
+        "Asse por 21 minutos em uma só camada, mexendo na metade do tempo.",
+        "Ajuste o sal e finalize com os ingredientes reservados para servir."
+      ],
+      "tip": "A casca pode permanecer: ela amacia e ajuda os gomos a manterem o formato."
+    },
+    {
+      "title": "Cogumelos recheados com espinafre e cottage",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Recheio de espinafre, cottage e alho em uma porção prática, dourada e cheia de textura.",
+      "yield_text": "10 unidades",
+      "minutes": 18,
+      "temperature": 180,
+      "ingredients": [
+        "10 cogumelos paris grandes sem os talos",
+        "100 g de queijo cottage",
+        "1/2 xícara (chá) de espinafre picado",
+        "1 dente de alho ralado",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 180 °C por 3 minutos.",
+        "Prepare os cogumelos para receber o recheio, retirando excesso de umidade quando necessário.",
+        "Misture os ingredientes do recheio até obter uma textura uniforme e prove o tempero.",
+        "Recheie as porções sem apertar demais e acomode-as em recipiente que caiba na cesta.",
+        "Asse por 10 minutos, até o centro estar quente e a superfície dourada."
+      ],
+      "tip": "Não lave os cogumelos em água corrente; limpe com pano úmido para não encharcar."
+    },
+    {
+      "title": "Cebola-roxa recheada com lentilha e queijo minas",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Cebolas recebe um recheio de lentilha, queijo minas e tomilho e vai direto para a Air Fryer.",
+      "yield_text": "4 unidades",
+      "minutes": 28,
+      "temperature": 180,
+      "ingredients": [
+        "4 cebolas-roxas médias pré-cozidas por 6 minutos",
+        "1 xícara (chá) de lentilha cozida e escorrida",
+        "100 g de queijo minas em cubos",
+        "1 colher (chá) de tomilho",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 180 °C por 3 minutos.",
+        "Prepare as cebolas para receber o recheio, retirando excesso de umidade quando necessário.",
+        "Misture os ingredientes do recheio até obter uma textura uniforme e prove o tempero.",
+        "Recheie as porções sem apertar demais e acomode-as em recipiente que caiba na cesta.",
+        "Asse por 20 minutos, até o centro estar quente e a superfície dourada."
+      ],
+      "tip": "Deixe duas camadas externas inteiras para a cebola sustentar o recheio."
+    },
+    {
+      "title": "Vagem tostada com parmesão e limão",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Vagens dourado com parmesão, limão e alho, preservando boa textura.",
+      "yield_text": "3 porções",
+      "minutes": 17,
+      "temperature": 190,
+      "ingredients": [
+        "350 g de vagem com as pontas retiradas",
+        "1 colher (sopa) de azeite",
+        "30 g de parmesão ralado fino",
+        "raspas de 1/2 limão",
+        "1/2 colher (chá) de alho em pó",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Seque bem as vagens e corte em tamanhos semelhantes para cozinhar por igual.",
+        "Misture com o azeite e os temperos, cobrindo todos os lados.",
+        "Asse por 12 minutos em uma só camada, mexendo na metade do tempo.",
+        "Ajuste o sal e finalize com os ingredientes reservados para servir."
+      ],
+      "tip": "Acrescente o parmesão nos 4 minutos finais para evitar que escureça demais."
+    },
+    {
+      "title": "Repolho em gomos com mostarda e ervas",
+      "category": "Legumes e Acompanhamentos",
+      "description": "Gomos de repolho ganha bordas tostadas e o aroma de mostarda, tomilho e vinagre.",
+      "yield_text": "4 porções",
+      "minutes": 24,
+      "temperature": 190,
+      "ingredients": [
+        "1/2 repolho pequeno cortado em 4 gomos",
+        "1 colher (sopa) de azeite",
+        "1 colher (sopa) de mostarda",
+        "1 colher (chá) de tomilho",
+        "1 colher (chá) de vinagre de maçã",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Seque bem os gomos de repolho e corte em tamanhos semelhantes para cozinhar por igual.",
+        "Misture com o azeite e os temperos, cobrindo todos os lados.",
+        "Asse por 19 minutos em uma só camada, mexendo na metade do tempo.",
+        "Ajuste o sal e finalize com os ingredientes reservados para servir."
+      ],
+      "tip": "Mantenha parte do talo em cada gomo para que as folhas não se soltem."
+    },
+    {
+      "title": "Nuvem salgada de cream cheese e orégano",
+      "category": "Lanches Low Carb",
+      "description": "Massa macia com cream cheese, orégano e claras em neve, assada em porções fáceis de servir.",
+      "yield_text": "6 unidades",
+      "minutes": 22,
+      "temperature": 160,
+      "ingredients": [
+        "3 ovos, com claras e gemas separadas",
+        "3 colheres (sopa) de cream cheese",
+        "30 g de parmesão ralado",
+        "1/2 colher (chá) de fermento químico",
+        "1/2 colher (chá) de orégano",
+        "1 pitada de sal"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 17 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Incorpore as claras com movimentos suaves para preservar o volume."
+    },
+    {
+      "title": "Empadinha de frango com massa de amêndoas",
+      "category": "Lanches Low Carb",
+      "description": "Massa dourada e recheio de frango, farinha de amêndoas e requeijão em uma porção fácil de compartilhar.",
+      "yield_text": "6 unidades",
+      "minutes": 27,
+      "temperature": 170,
+      "ingredients": [
+        "1 xícara (chá) de farinha de amêndoas",
+        "1 ovo",
+        "2 colheres (sopa) de azeite",
+        "1 xícara (chá) de frango cozido e desfiado",
+        "2 colheres (sopa) de requeijão",
+        "2 colheres (sopa) de tomate picado",
+        "sal e páprica a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Prepare o recheio, misturando os ingredientes até ficar úmido, mas sem líquido solto.",
+        "Modele as empadinhas, distribua o recheio e feche bem as bordas.",
+        "Pincele a superfície, acomode na cesta com espaço entre as unidades e asse em levas.",
+        "Asse por 19 minutos, virando se necessário, até dourar por igual."
+      ],
+      "tip": "Use forminhas de silicone para desenformar a massa delicada com facilidade."
+    },
+    {
+      "title": "Mini pizza de abobrinha com pesto",
+      "category": "Lanches Low Carb",
+      "description": "Camadas cremosas de rodelas de abobrinha, finalizadas com pesto, muçarela e tomate-cereja.",
+      "yield_text": "10 unidades",
+      "minutes": 17,
+      "temperature": 190,
+      "ingredients": [
+        "1 abobrinha grande em rodelas grossas",
+        "2 colheres (sopa) de molho pesto",
+        "100 g de muçarela ralada",
+        "5 tomates-cereja em metades",
+        "1 colher (chá) de azeite",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Prepare as rodelas de abobrinha e misture com os ingredientes cremosos e os temperos.",
+        "Transfira para um refratário baixo que caiba na cesta e nivele a superfície.",
+        "Espalhe os ingredientes da cobertura por cima, sem pressionar.",
+        "Asse por 12 minutos, até borbulhar nas bordas e dourar no centro."
+      ],
+      "tip": "Asse a abobrinha por 4 minutos antes de cobrir para evitar excesso de água."
+    },
+    {
+      "title": "Bolinho de atum, abobrinha e limão",
+      "category": "Lanches Low Carb",
+      "description": "Bolinhos bem temperado com atum, abobrinha e raspas de limão, ideal para uma refeição descomplicada.",
+      "yield_text": "8 unidades",
+      "minutes": 22,
+      "temperature": 190,
+      "ingredients": [
+        "1 lata de atum em água bem escorrido",
+        "1/2 abobrinha ralada e espremida",
+        "1 ovo",
+        "3 colheres (sopa) de farinha de amêndoas",
+        "raspas de 1/2 limão",
+        "1 colher (sopa) de salsinha",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque os bolinhos em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 17 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Resfrie a massa por 10 minutos se estiver macia demais para modelar."
+    },
+    {
+      "title": "Cestinha de peito de peru com ovo e alho-poró",
+      "category": "Lanches Low Carb",
+      "description": "Ovos e alho-poró, queijo minas e pimenta formam uma combinação simples para qualquer hora.",
+      "yield_text": "6 unidades",
+      "minutes": 18,
+      "temperature": 170,
+      "ingredients": [
+        "6 fatias de peito de peru",
+        "3 ovos",
+        "1/3 de xícara (chá) de alho-poró fatiado",
+        "60 g de queijo minas em cubos",
+        "1 colher (sopa) de cheiro-verde",
+        "pimenta-do-reino a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Bata os ovos apenas até misturar claras e gemas; junte os temperos e os complementos.",
+        "Unte ramequins ou forminhas de silicone e distribua a mistura sem encher até a borda.",
+        "Asse por 13 minutos, verificando o centro nos minutos finais.",
+        "Retire quando os ovos estiverem firmes, mas ainda úmidos, e sirva imediatamente."
+      ],
+      "tip": "Forre bem o fundo da forma com o peito de peru para o ovo não escapar."
+    },
+    {
+      "title": "Nuggets de couve-flor com queijo curado",
+      "category": "Lanches Low Carb",
+      "description": "Casquinha firme, interior macio e o sabor marcante de queijo curado, páprica e cebolinha.",
+      "yield_text": "12 unidades",
+      "minutes": 25,
+      "temperature": 190,
+      "ingredients": [
+        "2 xícaras (chá) de couve-flor cozida e picada",
+        "1 ovo",
+        "70 g de queijo curado ralado",
+        "3 colheres (sopa) de farinha de amêndoas",
+        "1 colher (sopa) de cebolinha",
+        "1/2 colher (chá) de páprica",
+        "azeite para pincelar",
+        "sal a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Tempere os nuggets de couve-flor e organize os ingredientes do empanado em recipientes separados.",
+        "Passe cada porção na camada úmida e depois na cobertura seca, pressionando levemente.",
+        "Acomode na cesta em uma só camada e borrife ou pincele uma fina camada de azeite.",
+        "Asse por 17 minutos, vire na metade e retire quando a crosta estiver dourada."
+      ],
+      "tip": "Amasse apenas parte da couve-flor para manter pequenos pedaços e dar textura."
+    },
+    {
+      "title": "Quiche sem massa de alho-poró e ricota",
+      "category": "Lanches Low Carb",
+      "description": "Ovos macios com alho-poró, ricota e noz-moscada, preparados em porções individuais.",
+      "yield_text": "4 porções",
+      "minutes": 25,
+      "temperature": 170,
+      "ingredients": [
+        "4 ovos",
+        "150 g de ricota amassada",
+        "1/2 xícara (chá) de alho-poró fatiado",
+        "3 colheres (sopa) de leite",
+        "1 pitada de noz-moscada",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Bata os ovos apenas até misturar claras e gemas; junte os temperos e os complementos.",
+        "Unte ramequins ou forminhas de silicone e distribua a mistura sem encher até a borda.",
+        "Asse por 20 minutos, verificando o centro nos minutos finais.",
+        "Retire quando os ovos estiverem firmes, mas ainda úmidos, e sirva imediatamente."
+      ],
+      "tip": "Use um refratário baixo para o centro cozinhar antes de as bordas ressecarem."
+    },
+    {
+      "title": "Muffin salgado de queijo, chia e tomate",
+      "category": "Lanches Low Carb",
+      "description": "Uma fornada pequena e aromática, preparada com queijo, chia e tomate.",
+      "yield_text": "6 unidades",
+      "minutes": 24,
+      "temperature": 170,
+      "ingredients": [
+        "3 ovos",
+        "1/2 xícara (chá) de farinha de amêndoas",
+        "80 g de muçarela ralada",
+        "1 tomate pequeno sem sementes em cubos",
+        "1 colher (sopa) de chia",
+        "1/2 colher (chá) de fermento químico",
+        "sal e orégano a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 19 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Se o topo dourar cedo, cubra as forminhas sem encostar na massa."
+    },
+    {
+      "title": "Rolinho de abobrinha com presunto e provolone",
+      "category": "Lanches Low Carb",
+      "description": "Uma receita caprichada de lâminas de abobrinha, com presunto, provolone e manjericão no centro.",
+      "yield_text": "8 unidades",
+      "minutes": 20,
+      "temperature": 190,
+      "ingredients": [
+        "1 abobrinha grande em lâminas finas",
+        "8 fatias finas de presunto",
+        "80 g de provolone em tiras",
+        "8 folhas de manjericão",
+        "1 colher (chá) de azeite",
+        "pimenta-do-reino a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Prepare as lâminas de abobrinha para receber o recheio, retirando excesso de umidade quando necessário.",
+        "Misture os ingredientes do recheio até obter uma textura uniforme e prove o tempero.",
+        "Recheie as porções sem apertar demais e acomode-as em recipiente que caiba na cesta.",
+        "Asse por 12 minutos, até o centro estar quente e a superfície dourada."
+      ],
+      "tip": "Sele as lâminas por 3 minutos antes de enrolar para ficarem flexíveis."
+    },
+    {
+      "title": "Tortinha de carne com crosta de queijo",
+      "category": "Lanches Low Carb",
+      "description": "Carne temperada bem quente, com cobertura dourada de tomate, queijo e páprica.",
+      "yield_text": "4 unidades",
+      "minutes": 28,
+      "temperature": 180,
+      "ingredients": [
+        "350 g de carne moída",
+        "1/2 xícara (chá) de tomate picado",
+        "100 g de muçarela ralada",
+        "2 colheres (sopa) de cebola picada",
+        "1 ovo",
+        "1/2 colher (chá) de páprica",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 180 °C por 3 minutos.",
+        "Prepare a carne temperada e misture com os ingredientes cremosos e os temperos.",
+        "Transfira para um refratário baixo que caiba na cesta e nivele a superfície.",
+        "Espalhe os ingredientes da cobertura por cima, sem pressionar.",
+        "Asse por 23 minutos, até borbulhar nas bordas e dourar no centro."
+      ],
+      "tip": "Faça porções baixas para a carne cozinhar antes de o queijo dourar demais."
+    },
+    {
+      "title": "Ovos assados com tomate-cereja e espinafre",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Uma refeição rápida de ovos com tomate-cereja, espinafre e queijo e bordas levemente douradas.",
+      "yield_text": "2 porções",
+      "minutes": 16,
+      "temperature": 170,
+      "ingredients": [
+        "4 ovos",
+        "8 tomates-cereja em metades",
+        "1/2 xícara (chá) de espinafre picado",
+        "40 g de queijo minas ralado",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Bata os ovos apenas até misturar claras e gemas; junte os temperos e os complementos.",
+        "Unte ramequins ou forminhas de silicone e distribua a mistura sem encher até a borda.",
+        "Asse por 11 minutos, verificando o centro nos minutos finais.",
+        "Retire quando os ovos estiverem firmes, mas ainda úmidos, e sirva imediatamente."
+      ],
+      "tip": "Para gema mais cremosa, comece a verificar 2 minutos antes do tempo indicado."
+    },
+    {
+      "title": "Muffin de ovos com brócolis e cebola-roxa",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Ovos e brócolis, cebola-roxa e cúrcuma formam uma combinação simples para qualquer hora.",
+      "yield_text": "6 unidades",
+      "minutes": 20,
+      "temperature": 170,
+      "ingredients": [
+        "4 ovos",
+        "1/2 xícara (chá) de brócolis picado",
+        "2 colheres (sopa) de cebola-roxa picada",
+        "40 g de parmesão ralado",
+        "1 pitada de cúrcuma",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Bata os ovos apenas até misturar claras e gemas; junte os temperos e os complementos.",
+        "Unte ramequins ou forminhas de silicone e distribua a mistura sem encher até a borda.",
+        "Asse por 15 minutos, verificando o centro nos minutos finais.",
+        "Retire quando os ovos estiverem firmes, mas ainda úmidos, e sirva imediatamente."
+      ],
+      "tip": "Pique o brócolis pequeno para ele cozinhar no mesmo tempo dos ovos."
+    },
+    {
+      "title": "Granola de castanhas, coco e sementes",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Textura macia e sabor de coco, canela e sementes para finalizar a refeição.",
+      "yield_text": "8 porções",
+      "minutes": 18,
+      "temperature": 150,
+      "ingredients": [
+        "1 xícara (chá) de castanhas variadas picadas",
+        "1/2 xícara (chá) de coco em lascas",
+        "2 colheres (sopa) de sementes de abóbora",
+        "2 colheres (sopa) de sementes de girassol",
+        "1 colher (sopa) de óleo de coco",
+        "1 colher (chá) de canela",
+        "1 colher (sopa) de adoçante culinário"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 150 °C por 3 minutos.",
+        "Prepare a mistura de castanhas e misture delicadamente com os ingredientes aromáticos.",
+        "Distribua em forma ou ramequins untados que caibam na cesta.",
+        "Asse por 13 minutos, observando a textura nos minutos finais.",
+        "Deixe amornar antes de servir para que os sabores e a estrutura se assentem."
+      ],
+      "tip": "Mexa a cada 4 minutos: castanhas passam do dourado ao queimado rapidamente."
+    },
+    {
+      "title": "Abacate assado com ovo e pimenta rosa",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Ovos e ovo, limão e pimenta rosa formam uma combinação simples para qualquer hora.",
+      "yield_text": "2 porções",
+      "minutes": 17,
+      "temperature": 170,
+      "ingredients": [
+        "1 abacate pequeno firme cortado ao meio",
+        "2 ovos pequenos",
+        "1 colher (chá) de suco de limão",
+        "1 colher (chá) de azeite",
+        "1 colher (chá) de cebolinha",
+        "sal e pimenta rosa a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Bata os ovos apenas até misturar claras e gemas; junte os temperos e os complementos.",
+        "Unte ramequins ou forminhas de silicone e distribua a mistura sem encher até a borda.",
+        "Asse por 12 minutos, verificando o centro nos minutos finais.",
+        "Retire quando os ovos estiverem firmes, mas ainda úmidos, e sirva imediatamente."
+      ],
+      "tip": "Retire um pouco da polpa para acomodar o ovo sem transbordar."
+    },
+    {
+      "title": "Panquequinha assada de coco e canela",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Textura delicada e sabor de coco, canela e baunilha em uma receita prática.",
+      "yield_text": "4 unidades",
+      "minutes": 18,
+      "temperature": 160,
+      "ingredients": [
+        "2 ovos",
+        "3 colheres (sopa) de farinha de coco",
+        "1/3 de xícara (chá) de leite",
+        "1 colher (chá) de adoçante culinário",
+        "1/2 colher (chá) de canela",
+        "1/2 colher (chá) de fermento químico",
+        "1/2 colher (chá) de essência de baunilha"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 13 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "A farinha de coco absorve líquido; espere 2 minutos antes de avaliar a consistência."
+    },
+    {
+      "title": "Frittata de cogumelos, rúcula e parmesão",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Uma refeição rápida de ovos com cogumelos, rúcula e parmesão e bordas levemente douradas.",
+      "yield_text": "3 porções",
+      "minutes": 23,
+      "temperature": 170,
+      "ingredients": [
+        "5 ovos",
+        "1 xícara (chá) de cogumelos fatiados",
+        "1/2 xícara (chá) de rúcula picada",
+        "40 g de parmesão ralado",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Bata os ovos apenas até misturar claras e gemas; junte os temperos e os complementos.",
+        "Unte ramequins ou forminhas de silicone e distribua a mistura sem encher até a borda.",
+        "Asse por 18 minutos, verificando o centro nos minutos finais.",
+        "Retire quando os ovos estiverem firmes, mas ainda úmidos, e sirva imediatamente."
+      ],
+      "tip": "Salteie os cogumelos por 4 minutos na Air Fryer antes de juntar aos ovos."
+    },
+    {
+      "title": "Bolinho de ricota, ervas e linhaça",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Uma combinação prática de bolinhos de ricota com ervas, linhaça e limão, feita em poucos passos.",
+      "yield_text": "10 unidades",
+      "minutes": 20,
+      "temperature": 180,
+      "ingredients": [
+        "250 g de ricota amassada",
+        "1 ovo",
+        "3 colheres (sopa) de linhaça dourada moída",
+        "2 colheres (sopa) de cheiro-verde",
+        "raspas de 1/2 limão",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 180 °C por 3 minutos.",
+        "Coloque os bolinhos de ricota em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 15 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Umedeça as mãos com água para modelar sem acrescentar mais farinha."
+    },
+    {
+      "title": "Tofu dourado com tomate e gergelim",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Cubos de tofu ganha sabor com tomate, gergelim e shoyu e fica dourado sem complicação.",
+      "yield_text": "2 porções",
+      "minutes": 22,
+      "temperature": 190,
+      "ingredients": [
+        "300 g de tofu firme em cubos",
+        "1 tomate sem sementes em cubos",
+        "1 colher (sopa) de shoyu com teor reduzido de sódio",
+        "1 colher (chá) de óleo de gergelim",
+        "1 colher (sopa) de gergelim",
+        "1 colher (chá) de amido de milho",
+        "cebolinha a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 190 °C por 3 minutos.",
+        "Coloque os cubos de tofu em uma tigela e envolva com os demais ingredientes até temperar por igual.",
+        "Distribua na cesta sem sobrepor as peças e reserve o tempero que restar na tigela.",
+        "Asse por 17 minutos, virando ou mexendo na metade do tempo.",
+        "Confira o ponto, deixe descansar por 2 minutos e sirva com o tempero da cesta."
+      ],
+      "tip": "Pressione o tofu entre papéis-toalha por 15 minutos para melhorar o dourado."
+    },
+    {
+      "title": "Tomate grande com ovo, cottage e cebolinha",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Recheio de ovo, cottage e cebolinha em uma porção prática, dourada e cheia de textura.",
+      "yield_text": "2 porções",
+      "minutes": 20,
+      "temperature": 170,
+      "ingredients": [
+        "2 tomates grandes e firmes sem a polpa",
+        "2 ovos pequenos",
+        "4 colheres (sopa) de queijo cottage",
+        "1 colher (sopa) de cebolinha",
+        "1 colher (chá) de azeite",
+        "sal e pimenta a gosto"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Prepare os tomates para receber o recheio, retirando excesso de umidade quando necessário.",
+        "Misture os ingredientes do recheio até obter uma textura uniforme e prove o tempero.",
+        "Recheie as porções sem apertar demais e acomode-as em recipiente que caiba na cesta.",
+        "Asse por 12 minutos, até o centro estar quente e a superfície dourada."
+      ],
+      "tip": "Coloque os tomates em ramequins para mantê-los estáveis dentro da cesta."
+    },
+    {
+      "title": "Pãozinho de linhaça com queijo e ervas",
+      "category": "Café da Manhã e Refeições Rápidas",
+      "description": "Uma fornada pequena e aromática, preparada com linhaça, queijo e alecrim.",
+      "yield_text": "4 unidades",
+      "minutes": 22,
+      "temperature": 170,
+      "ingredients": [
+        "1/2 xícara (chá) de linhaça dourada moída",
+        "2 ovos",
+        "80 g de queijo minas ralado",
+        "2 colheres (sopa) de iogurte natural",
+        "1/2 colher (chá) de fermento químico",
+        "1/2 colher (chá) de alecrim",
+        "1 pitada de sal"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 17 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Espere a massa descansar por 3 minutos para a linhaça hidratar."
+    },
+    {
+      "title": "Flan assado de coco e baunilha",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Uma fornada pequena e aromática, preparada com coco, baunilha e limão.",
+      "yield_text": "4 unidades",
+      "minutes": 27,
+      "temperature": 150,
+      "ingredients": [
+        "3 ovos",
+        "1 xícara (chá) de leite de coco",
+        "3 colheres (sopa) de coco ralado sem açúcar",
+        "2 colheres (sopa) de adoçante culinário",
+        "1/2 colher (chá) de baunilha",
+        "raspas de 1/2 limão"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 150 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 22 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Asse em ramequins cobertos e gele por 2 horas antes de servir."
+    },
+    {
+      "title": "Pera assada com cacau e creme de iogurte",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Uma sobremesa de peras com cacau, canela e iogurte, feita em pequena porção.",
+      "yield_text": "4 porções",
+      "minutes": 20,
+      "temperature": 170,
+      "ingredients": [
+        "2 peras firmes cortadas ao meio",
+        "1 colher (sopa) de cacau em pó",
+        "1/2 colher (chá) de canela",
+        "1 colher (chá) de adoçante culinário",
+        "1 colher (chá) de óleo de coco",
+        "1/2 xícara (chá) de iogurte natural"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 170 °C por 3 minutos.",
+        "Prepare as peras e misture delicadamente com os ingredientes aromáticos.",
+        "Distribua em forma ou ramequins untados que caibam na cesta.",
+        "Asse por 15 minutos, observando a textura nos minutos finais.",
+        "Deixe amornar antes de servir para que os sabores e a estrutura se assentem."
+      ],
+      "tip": "Sirva o iogurte frio sobre a pera morna para criar contraste."
+    },
+    {
+      "title": "Muffin de beterraba, cacau e aveia",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Textura delicada e sabor de beterraba, cacau e laranja em uma receita prática.",
+      "yield_text": "6 unidades",
+      "minutes": 26,
+      "temperature": 160,
+      "ingredients": [
+        "1/2 xícara (chá) de beterraba cozida e amassada",
+        "1 ovo",
+        "1/2 xícara (chá) de aveia em flocos finos",
+        "2 colheres (sopa) de cacau em pó",
+        "2 colheres (sopa) de adoçante culinário",
+        "raspas de 1/2 laranja",
+        "1 colher (chá) de fermento químico"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 21 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Processe a beterraba até obter um purê liso para a massa ficar uniforme."
+    },
+    {
+      "title": "Brownie de cacau e feijão-preto",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Uma fornada pequena e aromática, preparada com cacau, feijão-preto e baunilha.",
+      "yield_text": "6 pedaços",
+      "minutes": 25,
+      "temperature": 160,
+      "ingredients": [
+        "1 xícara (chá) de feijão-preto cozido e escorrido",
+        "1 ovo",
+        "3 colheres (sopa) de cacau em pó",
+        "3 colheres (sopa) de adoçante culinário",
+        "2 colheres (sopa) de óleo de coco",
+        "1/2 colher (chá) de baunilha",
+        "1/2 colher (chá) de fermento químico"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 20 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Bata o feijão até ficar completamente liso antes de misturar os demais ingredientes."
+    },
+    {
+      "title": "Cocadinha macia de coco e limão",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Uma sobremesa de massa de coco com coco, limão e leite de coco, feita em pequena porção.",
+      "yield_text": "10 unidades",
+      "minutes": 19,
+      "temperature": 160,
+      "ingredients": [
+        "1 xícara (chá) de coco seco sem açúcar",
+        "1 ovo",
+        "3 colheres (sopa) de leite de coco",
+        "2 colheres (sopa) de adoçante culinário",
+        "raspas de 1 limão",
+        "1/2 colher (chá) de essência de baunilha"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Prepare a massa de coco e misture delicadamente com os ingredientes aromáticos.",
+        "Distribua em forma ou ramequins untados que caibam na cesta.",
+        "Asse por 14 minutos, observando a textura nos minutos finais.",
+        "Deixe amornar antes de servir para que os sabores e a estrutura se assentem."
+      ],
+      "tip": "Modele porções compactas para que as bordas dourem sem a cocada se desfazer."
+    },
+    {
+      "title": "Cheesecake individual de iogurte e frutas vermelhas",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Uma fornada pequena e aromática, preparada com iogurte, baunilha e frutas vermelhas.",
+      "yield_text": "4 unidades",
+      "minutes": 25,
+      "temperature": 150,
+      "ingredients": [
+        "200 g de cream cheese",
+        "1/2 xícara (chá) de iogurte natural",
+        "1 ovo",
+        "2 colheres (sopa) de adoçante culinário",
+        "1/2 colher (chá) de baunilha",
+        "1/2 xícara (chá) de frutas vermelhas"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 150 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 20 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Leve à geladeira por pelo menos 2 horas para o centro adquirir textura cremosa."
+    },
+    {
+      "title": "Bolinho de cenoura com amêndoas e laranja",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Textura delicada e sabor de amêndoas, laranja e canela em uma receita prática.",
+      "yield_text": "6 unidades",
+      "minutes": 26,
+      "temperature": 160,
+      "ingredients": [
+        "1 cenoura pequena ralada fino",
+        "2 ovos",
+        "3/4 de xícara (chá) de farinha de amêndoas",
+        "3 colheres (sopa) de adoçante culinário",
+        "raspas de 1/2 laranja",
+        "1/2 colher (chá) de canela",
+        "1 colher (chá) de fermento químico"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 21 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Rale a cenoura bem fina para ela cozinhar no curto tempo da Air Fryer."
+    },
+    {
+      "title": "Trufa assada de ricota, cacau e castanhas",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Massa macia com cacau, castanhas e laranja, assada em porções fáceis de servir.",
+      "yield_text": "10 unidades",
+      "minutes": 20,
+      "temperature": 160,
+      "ingredients": [
+        "200 g de ricota bem amassada",
+        "3 colheres (sopa) de cacau em pó",
+        "3 colheres (sopa) de castanhas moídas",
+        "2 colheres (sopa) de adoçante culinário",
+        "1 ovo",
+        "raspas de 1/2 laranja",
+        "1 pitada de sal"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 15 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Resfrie a massa por 15 minutos para modelar porções regulares."
+    },
+    {
+      "title": "Biscoito macio de amendoim e banana",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Textura delicada e sabor de amendoim, banana e canela em uma receita prática.",
+      "yield_text": "12 unidades",
+      "minutes": 18,
+      "temperature": 160,
+      "ingredients": [
+        "1 banana madura amassada",
+        "1/2 xícara (chá) de pasta de amendoim sem açúcar",
+        "1/2 xícara (chá) de farinha de amendoim",
+        "1/2 colher (chá) de canela",
+        "1 colher (sopa) de cacau em nibs",
+        "1 pitada de sal"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 13 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Achate os biscoitos antes de assar, pois a massa quase não se espalha."
+    },
+    {
+      "title": "Quadradinho de coco, limão e chia",
+      "category": "Doces e Sobremesas Fit",
+      "description": "Massa macia com limão, chia e baunilha, assada em porções fáceis de servir.",
+      "yield_text": "8 pedaços",
+      "minutes": 23,
+      "temperature": 160,
+      "ingredients": [
+        "1 xícara (chá) de coco ralado sem açúcar",
+        "2 ovos",
+        "1/3 de xícara (chá) de leite de coco",
+        "2 colheres (sopa) de chia",
+        "2 colheres (sopa) de adoçante culinário",
+        "raspas de 1 limão",
+        "1/2 colher (chá) de baunilha"
+      ],
+      "steps": [
+        "Preaqueça a Air Fryer a 160 °C por 3 minutos.",
+        "Misture primeiro os ingredientes úmidos e incorpore os secos sem bater em excesso.",
+        "Divida a massa em forminhas untadas, preenchendo no máximo três quartos da capacidade.",
+        "Asse por 18 minutos e faça o teste do palito no centro.",
+        "Espere 5 minutos antes de desenformar para a massa firmar."
+      ],
+      "tip": "Espere esfriar por completo antes de cortar para obter quadrados firmes."
+    }
+  ]
+}
