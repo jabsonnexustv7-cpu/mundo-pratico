@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Mundo Prático">
+  <rect width="512" height="512" rx="112" fill="#2d2925"/>
+  <circle cx="256" cy="256" r="154" fill="none" stroke="#c58a42" stroke-width="10"/>
+  <path d="M164 326V174h38l54 91 54-91h38v152h-38v-91l-42 70h-24l-42-70v91z" fill="#f7f2ea"/>
+</svg>
