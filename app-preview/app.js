@@ -160,18 +160,62 @@
   // Controle de instalação do PWA.
   let deferredInstallPrompt = null;
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const ua = navigator.userAgent || '';
+  const isiOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isEdge = /Edg\//.test(ua);
+  const isChrome = /Chrome\//.test(ua) && !isEdge;
 
-  function createInstallButton() {
-    if (isStandalone) return null;
-
+  function injectInstallStyles() {
+    if (document.getElementById('mp-install-styles')) return;
     const style = document.createElement('style');
+    style.id = 'mp-install-styles';
     style.textContent = `
-      .mp-install-button{position:fixed;right:18px;top:18px;z-index:9999;border:0;border-radius:999px;padding:11px 16px;background:#28231f;color:#fff;font:700 13px/1.1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 10px 28px rgba(40,35,31,.22);cursor:pointer;display:flex;align-items:center;gap:8px}
-      .mp-install-button:hover{transform:translateY(-1px)}
-      .mp-install-button span{font-size:16px}
+      .mp-install-button{position:fixed;right:18px;top:18px;z-index:9998;border:0;border-radius:999px;padding:11px 16px;background:#28231f;color:#fff;font:700 13px/1.1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 10px 28px rgba(40,35,31,.22);cursor:pointer;display:flex;align-items:center;gap:8px}.mp-install-button:hover{transform:translateY(-1px)}.mp-install-button span{font-size:16px}
+      .mp-ios-guide{position:fixed;inset:0;z-index:10000;background:rgba(31,27,24,.45);display:grid;align-items:end;padding:14px;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.mp-ios-guide__card{width:min(100%,520px);margin:0 auto;background:#fffdf9;border-radius:24px 24px 18px 18px;padding:22px 20px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -12px 50px rgba(40,35,31,.22);color:#28231f}.mp-ios-guide__top{display:flex;gap:14px;align-items:flex-start}.mp-ios-guide__icon{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#f6eee4;display:grid;place-items:center;font:700 22px Georgia,serif;border:1px solid rgba(40,35,31,.1)}.mp-ios-guide h3{margin:1px 0 6px;font:600 22px/1.05 Georgia,serif}.mp-ios-guide p{margin:0;color:#716961;font-size:14px;line-height:1.45}.mp-ios-steps{display:grid;gap:10px;margin:18px 0}.mp-ios-step{display:grid;grid-template-columns:32px 1fr;gap:11px;align-items:center;background:#f7f2ea;border-radius:14px;padding:11px 12px}.mp-ios-step b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#d95c0b;color:#fff;font-size:13px}.mp-ios-step span{font-size:14px;line-height:1.3}.mp-ios-guide__actions{display:grid;grid-template-columns:1fr auto;gap:10px}.mp-ios-guide__actions button{border:0;border-radius:12px;padding:12px 16px;font-weight:750;cursor:pointer}.mp-ios-guide__ok{background:#28231f;color:#fff}.mp-ios-guide__later{background:#f0ece6;color:#514941}.mp-ios-arrow{text-align:center;font-size:13px;color:#716961;margin-top:11px!important}.mp-ios-arrow strong{color:#d95c0b}
       @media(max-width:760px){.mp-install-button{top:auto;right:14px;bottom:78px;padding:12px 15px}}
     `;
     document.head.appendChild(style);
+  }
+
+  function showIOSInstallGuide() {
+    if (!isiOS || isStandalone || document.querySelector('.mp-ios-guide')) return;
+    injectInstallStyles();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'mp-ios-guide';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Como instalar o Mundo Prático no iPhone');
+    overlay.innerHTML = `
+      <div class="mp-ios-guide__card">
+        <div class="mp-ios-guide__top">
+          <div class="mp-ios-guide__icon">M</div>
+          <div><h3>Use como um app no iPhone</h3><p>Leva poucos segundos e depois o Mundo Prático abre em tela cheia, direto pela sua Tela de Início.</p></div>
+        </div>
+        <div class="mp-ios-steps">
+          <div class="mp-ios-step"><b>1</b><span>Toque no botão <strong>Compartilhar</strong> do Safari.</span></div>
+          <div class="mp-ios-step"><b>2</b><span>Escolha <strong>Adicionar à Tela de Início</strong>.</span></div>
+          <div class="mp-ios-step"><b>3</b><span>Confirme em <strong>Adicionar</strong>.</span></div>
+        </div>
+        <div class="mp-ios-guide__actions"><button class="mp-ios-guide__ok" type="button">Entendi</button><button class="mp-ios-guide__later" type="button">Agora não</button></div>
+        <p class="mp-ios-arrow">Depois, abra pelo ícone <strong>Mundo Prático</strong> na Tela de Início.</p>
+      </div>`;
+
+    const closeGuide = () => {
+      overlay.remove();
+      try { sessionStorage.setItem('mp-ios-guide-seen', '1'); } catch (_) {}
+    };
+    overlay.querySelector('.mp-ios-guide__ok')?.addEventListener('click', closeGuide);
+    overlay.querySelector('.mp-ios-guide__later')?.addEventListener('click', closeGuide);
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) closeGuide();
+    });
+    document.body.appendChild(overlay);
+  }
+
+  function createInstallButton() {
+    if (isStandalone) return null;
+    injectInstallStyles();
 
     const button = document.createElement('button');
     button.type = 'button';
@@ -198,13 +242,8 @@
       return;
     }
 
-    const ua = navigator.userAgent || '';
-    const isiOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const isEdge = /Edg\//.test(ua);
-    const isChrome = /Chrome\//.test(ua) && !isEdge;
-
     if (isiOS) {
-      alert('Para instalar no iPhone/iPad: toque em Compartilhar e depois em “Adicionar à Tela de Início”.');
+      showIOSInstallGuide();
     } else if (isEdge) {
       alert('No Microsoft Edge: abra o menu ⋯, escolha “Apps” e depois “Instalar Mundo Prático”.');
     } else if (isChrome) {
@@ -213,6 +252,14 @@
       alert('Use o menu do navegador e procure “Instalar app” ou “Adicionar à tela inicial”.');
     }
   });
+
+  // No iPhone/iPad o Safari não oferece um prompt programático como Chrome/Edge.
+  // Mostramos uma orientação própria na primeira visita enquanto ainda não estiver instalado.
+  if (isiOS && !isStandalone) {
+    let guideSeen = false;
+    try { guideSeen = sessionStorage.getItem('mp-ios-guide-seen') === '1'; } catch (_) {}
+    if (!guideSeen) setTimeout(showIOSInstallGuide, 1100);
+  }
 
   window.addEventListener('appinstalled', () => {
     installButton?.remove();
