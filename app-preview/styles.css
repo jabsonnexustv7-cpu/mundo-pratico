@@ -19,3 +19,15 @@
 .modal-visual img{display:block;object-position:50% 55%}
 @media(max-width:980px){.hero-card__visual{display:block;min-height:0;height:180px}.shopping-image{max-width:360px}}
 @media(max-width:760px){.hero-card__visual{height:150px}.ingredient-image{width:64px;height:64px;flex-basis:64px}.shopping-image{height:120px}}
+
+/* Recipe photos and compact thumbnails in the weekly plan. */
+.recipe-photo--one,.recipe-photo--two,.recipe-photo--three{background-image:none}
+.recipe-photo{overflow:hidden}
+.recipe-modal{max-height:calc(100vh - 28px);max-height:calc(100dvh - 28px);overflow-y:auto}
+.day-plan{grid-template-columns:38px 56px minmax(0,1fr) auto;gap:10px}
+.planner-card{align-content:start}
+.day-plan__thumbnail{width:56px;height:42px;border-radius:9px;overflow:hidden}
+.day-plan__thumbnail img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.day-plan strong,.day-plan small{overflow-wrap:anywhere}
+.day-plan b{white-space:nowrap}
+@media(max-width:420px){.day-plan{gap:7px}.day-plan strong{font-size:13px}.day-plan b{font-size:10px}}

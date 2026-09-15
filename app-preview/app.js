@@ -310,13 +310,13 @@
   const plannerForm = document.getElementById('plannerForm');
   const plannerResult = document.getElementById('plannerResult');
   const samplePlan = [
-    ['SEG', 'Frango crocante', 'Batatas + salada', '32 min'],
-    ['TER', 'Carne acebolada', 'Arroz + legumes', '30 min'],
-    ['QUA', 'Macarrão cremoso', 'Tomate + queijo', '25 min'],
-    ['QUI', 'Omelete completa', 'Salada fresca', '18 min'],
-    ['SEX', 'Mini pizzas', 'Noite prática', '20 min'],
-    ['SÁB', 'Frango barbecue', 'Batatas rústicas', '35 min'],
-    ['DOM', 'Arroz de forno', 'Reaproveitamento', '28 min']
+    { day: 'SEG', title: 'Frango crocante', side: 'Batatas + salada', time: '32 min', image: './assets/images/01-frango-crocante-batatas.png', alt: 'Frango crocante com batatas rústicas douradas' },
+    { day: 'TER', title: 'Carne acebolada', side: 'Arroz + legumes', time: '30 min', image: './assets/images/02-carne-acebolada-arroz-legumes.png', alt: 'Carne acebolada com arroz e legumes coloridos' },
+    { day: 'QUA', title: 'Macarrão cremoso', side: 'Tomate + queijo', time: '25 min', image: './assets/images/09-macarrao-cremoso-tomate-queijo.png', alt: 'Macarrão cremoso com tomate, queijo e manjericão' },
+    { day: 'QUI', title: 'Omelete completa', side: 'Salada fresca', time: '18 min', image: './assets/images/10-omelete-completa-salada.png', alt: 'Omelete recheada com legumes acompanhada de salada fresca' },
+    { day: 'SEX', title: 'Mini pizzas', side: 'Noite prática', time: '20 min', image: './assets/images/04-mini-pizzas-praticas.png', alt: 'Mini pizzas com queijo gratinado, tomate e ervas' },
+    { day: 'SÁB', title: 'Frango barbecue', side: 'Batatas rústicas', time: '35 min', image: './assets/images/11-frango-barbecue-batatas-rusticas.png', alt: 'Frango ao molho barbecue servido com batatas rústicas' },
+    { day: 'DOM', title: 'Arroz de forno', side: 'Reaproveitamento', time: '28 min', image: './assets/images/12-arroz-de-forno.png', alt: 'Arroz de forno com legumes e cobertura de queijo gratinado' }
   ];
 
   plannerForm?.addEventListener('submit', (event) => {
@@ -347,16 +347,26 @@
         const row = document.createElement('div');
         row.className = 'day-plan';
         const dayBadge = document.createElement('span');
-        dayBadge.textContent = day[0];
+        dayBadge.textContent = day.day;
+        const thumbnail = document.createElement('div');
+        thumbnail.className = 'day-plan__thumbnail';
+        const image = document.createElement('img');
+        image.src = day.image;
+        image.alt = day.alt;
+        image.width = 1448;
+        image.height = 1086;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        thumbnail.append(image);
         const meal = document.createElement('div');
         const mealTitle = document.createElement('strong');
-        mealTitle.textContent = day[1];
+        mealTitle.textContent = day.title;
         const mealSide = document.createElement('small');
-        mealSide.textContent = day[2];
+        mealSide.textContent = day.side;
         meal.append(mealTitle, mealSide);
         const time = document.createElement('b');
-        time.textContent = day[3];
-        row.append(dayBadge, meal, time);
+        time.textContent = day.time;
+        row.append(dayBadge, thumbnail, meal, time);
         wrapper.append(row);
       });
 
@@ -396,9 +406,70 @@
     }, 650);
   });
 
+  const recipeData = {
+    'frango-crocante': {
+      image: './assets/images/01-frango-crocante-batatas.png',
+      alt: 'Frango crocante servido com batatas rústicas douradas',
+      title: 'Frango crocante com batatas',
+      meta: 'Air Fryer · 35 minutos',
+      description: 'Exemplo de como a receita será apresentada no produto final.',
+      ingredients: ['600 g de peito de frango', '700 g de batata', '2 colheres de azeite', 'Páprica, sal e alho'],
+      steps: ['Tempere o frango e corte as batatas.', 'Preaqueça a Air Fryer a 200 °C.', 'Asse as batatas por 15 minutos.', 'Adicione o frango e finalize por 18–20 minutos.'],
+    },
+    'frango-cremoso': {
+      image: './assets/images/07-frango-cremoso-gratinado.png',
+      alt: 'Frango cremoso gratinado com muçarela dourada e ervas',
+      title: 'Frango cremoso gratinado',
+      meta: 'Air Fryer / forno · 28 minutos',
+      description: 'Uma opção demonstrativa de frango com creme e queijo gratinado para almoço ou jantar.',
+      ingredients: ['400 g de frango cozido e desfiado', '3 colheres de requeijão ou creme de leite', '100 g de muçarela', '1 dente de alho picado', 'Sal, pimenta e ervas a gosto'],
+      steps: ['Misture o frango já cozido com o requeijão, o alho e os temperos.', 'Distribua em um recipiente próprio para o equipamento e cubra com a muçarela.', 'Gratine na Air Fryer a 180 °C por 10–12 minutos ou no forno preaquecido a 200 °C até dourar.', 'Sirva quando o recheio estiver bem aquecido e o queijo dourado.'],
+    },
+    'batatas-recheadas': {
+      image: './assets/images/08-batatas-recheadas.png',
+      alt: 'Batatas recheadas com creme, queijo dourado e ervas',
+      title: 'Batatas recheadas',
+      meta: 'Air Fryer / forno · 22 minutos',
+      description: 'Batatas macias com recheio cremoso e queijo gratinado. Exemplo rápido usando batatas já cozidas.',
+      ingredients: ['2 batatas grandes já cozidas', '2 colheres de requeijão', '80 g de queijo ralado', 'Azeite, sal e ervas a gosto'],
+      steps: ['Corte as batatas cozidas ao meio e retire parte da polpa, mantendo a casca firme.', 'Amasse a polpa e misture com o requeijão, metade do queijo e as ervas.', 'Recheie as metades e cubra com o queijo restante.', 'Gratine na Air Fryer a 180 °C por 8–10 minutos ou no forno preaquecido a 200 °C até dourar.'],
+    },
+    'mini-pizza': {
+      image: './assets/images/04-mini-pizzas-praticas.png',
+      alt: 'Mini pizzas práticas com queijo gratinado, tomate e orégano',
+      title: 'Mini pizza prática',
+      meta: 'Lanche rápido · 18 minutos',
+      description: 'Um lanche demonstrativo com bases prontas e ingredientes que já podem estar na geladeira.',
+      ingredients: ['4 bases pequenas de pizza pré-assadas', '4 colheres de molho de tomate', '100 g de muçarela', '1 tomate em rodelas', 'Orégano a gosto'],
+      steps: ['Distribua o molho de tomate sobre as bases pré-assadas.', 'Cubra com a muçarela, o tomate e o orégano.', 'Leve à Air Fryer a 180 °C por 6–8 minutos ou ao forno preaquecido a 200 °C até o queijo derreter.', 'Sirva assim que as bordas estiverem douradas.'],
+    },
+  };
+
+  function openRecipe(recipeId) {
+    const recipe = recipeData[recipeId];
+    if (!recipe || !recipeModal) return;
+    const image = recipeModal.querySelector('.modal-visual img');
+    image.src = recipe.image;
+    image.alt = recipe.alt;
+    const copy = recipeModal.querySelector('.modal-copy');
+    copy.querySelector('.eyebrow').textContent = recipe.meta;
+    copy.querySelector('h2').textContent = recipe.title;
+    copy.querySelector(':scope > p:not(.eyebrow)').textContent = recipe.description;
+    const makeItems = (items) => items.map((text) => {
+      const item = document.createElement('li');
+      item.textContent = text;
+      return item;
+    });
+    copy.querySelector('.modal-columns ul').replaceChildren(...makeItems(recipe.ingredients));
+    copy.querySelector('.modal-columns ol').replaceChildren(...makeItems(recipe.steps));
+    recipeModal.dataset.recipeId = recipeId;
+    recipeModal.showModal();
+    recipeModal.scrollTop = 0;
+  }
+
   function bindRecipeButtons() {
     document.querySelectorAll('[data-open-recipe]').forEach((button) => {
-      button.onclick = () => recipeModal?.showModal();
+      button.onclick = () => openRecipe(button.dataset.recipeId);
     });
   }
   bindRecipeButtons();

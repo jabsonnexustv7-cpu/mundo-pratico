@@ -1,4 +1,4 @@
-const CACHE = 'mundo-pratico-preview-v7';
+const CACHE = 'mundo-pratico-preview-v8';
 const ASSETS = [
   './', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg',
   './assets/images/01-frango-crocante-batatas.png',
@@ -6,7 +6,13 @@ const ASSETS = [
   './assets/images/03-tilapia-dourada-batatas-salada.png',
   './assets/images/04-mini-pizzas-praticas.png',
   './assets/images/05-ingredientes-em-casa.png',
-  './assets/images/06-lista-compras-mercado.png'
+  './assets/images/06-lista-compras-mercado.png',
+  './assets/images/07-frango-cremoso-gratinado.png',
+  './assets/images/08-batatas-recheadas.png',
+  './assets/images/09-macarrao-cremoso-tomate-queijo.png',
+  './assets/images/10-omelete-completa-salada.png',
+  './assets/images/11-frango-barbecue-batatas-rusticas.png',
+  './assets/images/12-arroz-de-forno.png'
 ];
 
 self.addEventListener('install', (event) => {
