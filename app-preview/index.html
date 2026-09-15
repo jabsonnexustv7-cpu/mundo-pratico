@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f2ea">
+  <meta name="description" content="Preview navegável do novo Mundo Prático: planejador de refeições, lista de compras e receitas.">
+  <title>Mundo Prático — Preview do App</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" data-nav="inicio" aria-label="Mundo Prático — início">
+        <span class="brand-mark">M</span>
+        <span class="brand-copy"><strong>Mundo Prático</strong><small>seu dia mais simples</small></span>
+      </a>
+      <nav class="desktop-nav">
+        <button class="nav-item is-active" data-nav="inicio"><span>⌂</span>Início</button>
+        <button class="nav-item" data-nav="planejar"><span>▦</span>Planejar</button>
+        <button class="nav-item" data-nav="receitas"><span>◫</span>Receitas</button>
+        <button class="nav-item" data-nav="compras"><span>✓</span>Compras</button>
+      </nav>
+      <div class="sidebar-card">
+        <span class="sidebar-card__icon">✦</span>
+        <strong>Plano da semana</strong>
+        <p>Organize 7 dias de refeições em poucos minutos.</p>
+        <button class="text-button" data-nav="planejar">Montar meu plano →</button>
+      </div>
+      <p class="prototype-tag">Preview · sem banco de dados</p>
+    </aside>
+
+    <main class="main">
+      <header class="mobile-header">
+        <a class="mobile-brand" href="#inicio" data-nav="inicio"><span class="brand-mark">M</span><strong>Mundo Prático</strong></a>
+        <span class="prototype-pill">Preview</span>
+      </header>
+
+      <section class="view is-active" id="view-inicio" data-view="inicio">
+        <div class="top-row">
+          <div>
+            <p class="eyebrow">Terça-feira · 15 de setembro</p>
+            <h1>Bom dia, <em>Jabson.</em></h1>
+            <p class="lede">O que você precisa resolver na cozinha hoje?</p>
+          </div>
+          <div class="streak"><span>3</span><small>dias organizados</small></div>
+        </div>
+
+        <section class="hero-card">
+          <div class="hero-card__copy">
+            <span class="chip chip--light">Seu almoço de hoje</span>
+            <h2>Frango crocante<br>com batatas rústicas</h2>
+            <p>Uma refeição simples para 4 pessoas, pronta em aproximadamente 35 minutos.</p>
+            <div class="meal-meta"><span>35 min</span><span>4 porções</span><span>Air Fryer</span></div>
+            <div class="hero-actions">
+              <button class="button button--light" data-open-recipe>Ver receita</button>
+              <button class="button button--ghost-light" data-nav="planejar">Trocar refeição</button>
+            </div>
+          </div>
+          <div class="hero-card__visual">
+            <img src="../assets/images/category-frango.webp" alt="Frango preparado na Air Fryer">
+          </div>
+        </section>
+
+        <section class="quick-actions" aria-label="Ações rápidas">
+          <button class="quick-card" data-nav="planejar"><span class="quick-icon">▦</span><span><strong>Planejar semana</strong><small>Monte seu cardápio em minutos</small></span><b>→</b></button>
+          <button class="quick-card" data-nav="receitas" data-mode="ingredients"><span class="quick-icon">✦</span><span><strong>Usar o que tenho</strong><small>Digite ingredientes e veja ideias</small></span><b>→</b></button>
+          <button class="quick-card" data-nav="compras"><span class="quick-icon">✓</span><span><strong>Lista de compras</strong><small>8 de 14 itens já separados</small></span><b>→</b></button>
+        </section>
+
+        <div class="section-title"><div><p class="eyebrow">Sua semana</p><h2>Próximas refeições</h2></div><button class="text-button" data-nav="planejar">Ver semana completa →</button></div>
+        <div class="meal-grid">
+          <article class="meal-card"><span class="day">QUA</span><div class="meal-card__image meal-card__image--one"></div><h3>Carne acebolada</h3><p>Arroz + legumes</p><small>30 min · 4 porções</small></article>
+          <article class="meal-card"><span class="day">QUI</span><div class="meal-card__image meal-card__image--two"></div><h3>Tilápia dourada</h3><p>Batatas + salada</p><small>25 min · 4 porções</small></article>
+          <article class="meal-card"><span class="day">SEX</span><div class="meal-card__image meal-card__image--three"></div><h3>Mini pizzas</h3><p>Noite prática</p><small>20 min · 4 porções</small></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-planejar" data-view="planejar">
+        <div class="page-heading"><p class="eyebrow">Planejador inteligente</p><h1>Monte uma semana<br><em>que cabe na sua rotina.</em></h1><p>Este preview simula a experiência. Depois conectamos IA, login e banco de dados.</p></div>
+        <div class="planner-layout">
+          <form class="planner-card" id="plannerForm">
+            <div class="field-row"><label><span>Quantas pessoas?</span><select id="people"><option>1 pessoa</option><option>2 pessoas</option><option selected>4 pessoas</option><option>5 pessoas</option><option>6+ pessoas</option></select></label><label><span>Orçamento semanal</span><select id="budget"><option>Até R$ 150</option><option selected>Até R$ 250</option><option>Até R$ 350</option><option>Sem limite definido</option></select></label></div>
+            <label><span>Objetivo principal</span><div class="choice-grid"><input type="radio" name="goal" id="g1" checked><label for="g1">Praticidade</label><input type="radio" name="goal" id="g2"><label for="g2">Economia</label><input type="radio" name="goal" id="g3"><label for="g3">Mais variedade</label></div></label>
+            <label><span>O que você prefere evitar?</span><div class="tag-input"><button type="button" class="tag is-selected">Peixe ×</button><button type="button" class="tag">Carne suína</button><button type="button" class="tag">Leite</button><button type="button" class="tag">Glúten</button></div></label>
+            <label><span>Equipamentos que quer usar</span><div class="choice-grid"><input type="checkbox" id="e1" checked><label for="e1">Air Fryer</label><input type="checkbox" id="e2" checked><label for="e2">Fogão</label><input type="checkbox" id="e3"><label for="e3">Forno</label></div></label>
+            <button class="button button--primary button--wide" type="submit"><span class="button-label">Gerar meu plano de 7 dias</span><span>→</span></button>
+          </form>
+          <aside class="planner-result" id="plannerResult">
+            <div class="result-empty"><span class="result-symbol">✦</span><h3>Seu plano aparece aqui</h3><p>Preencha suas preferências e veja como seria a geração do cardápio.</p></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="view-receitas" data-view="receitas">
+        <div class="page-heading page-heading--compact"><p class="eyebrow">Receitas</p><h1>Ideias para <em>agora.</em></h1><p>Explore a biblioteca ou diga o que já existe na sua cozinha.</p></div>
+        <div class="ingredient-box" id="ingredientBox">
+          <div><span class="ingredient-icon">✦</span><div><strong>O que você tem em casa?</strong><p>Separe os ingredientes por vírgulas.</p></div></div>
+          <form id="ingredientForm"><input id="ingredientInput" type="text" placeholder="Ex.: frango, batata, queijo, tomate"><button class="button button--primary" type="submit">Encontrar receitas</button></form>
+        </div>
+        <div class="filter-row"><button class="filter is-active">Para você</button><button class="filter">Até 30 min</button><button class="filter">Air Fryer</button><button class="filter">Econômicas</button></div>
+        <div class="recipe-grid" id="recipeGrid">
+          <article class="recipe-card"><div class="recipe-photo recipe-photo--one"><span>28 min</span></div><div class="recipe-body"><p class="eyebrow">Air Fryer · fácil</p><h3>Frango cremoso gratinado</h3><p>Uma opção rápida para almoço ou jantar, com poucos ingredientes.</p><button class="text-button" data-open-recipe>Ver receita →</button></div></article>
+          <article class="recipe-card"><div class="recipe-photo recipe-photo--two"><span>22 min</span></div><div class="recipe-body"><p class="eyebrow">Econômica · fácil</p><h3>Batatas recheadas</h3><p>Crocantes por fora e macias por dentro, com recheio adaptável.</p><button class="text-button" data-open-recipe>Ver receita →</button></div></article>
+          <article class="recipe-card"><div class="recipe-photo recipe-photo--three"><span>18 min</span></div><div class="recipe-body"><p class="eyebrow">Lanche · rápido</p><h3>Mini pizza prática</h3><p>Uma solução simples para aproveitar ingredientes que já estão na geladeira.</p><button class="text-button" data-open-recipe>Ver receita →</button></div></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-compras" data-view="compras">
+        <div class="page-heading page-heading--compact"><p class="eyebrow">Lista inteligente</p><h1>Compras da <em>semana.</em></h1><p>Gerada a partir do cardápio. Neste preview, os dados ficam apenas no navegador.</p></div>
+        <div class="shopping-summary"><div><span class="summary-number" id="checkedCount">8</span><small>de 14 itens separados</small></div><div><span class="summary-number">R$ 187</span><small>estimativa da semana</small></div><div class="progress-wrap"><span><b id="progressText">57%</b> concluído</span><div class="progress"><i id="progressBar" style="width:57%"></i></div></div></div>
+        <div class="shopping-layout">
+          <div class="shopping-list" id="shoppingList">
+            <div class="list-group"><div class="list-group__title"><strong>Hortifruti</strong><small>5 itens</small></div><label><input type="checkbox" checked><span>Batata inglesa</span><b>2 kg</b></label><label><input type="checkbox" checked><span>Tomate</span><b>800 g</b></label><label><input type="checkbox"><span>Cebola</span><b>1 kg</b></label><label><input type="checkbox" checked><span>Alface</span><b>2 un.</b></label><label><input type="checkbox"><span>Cenoura</span><b>500 g</b></label></div>
+            <div class="list-group"><div class="list-group__title"><strong>Carnes e proteínas</strong><small>4 itens</small></div><label><input type="checkbox" checked><span>Peito de frango</span><b>1,5 kg</b></label><label><input type="checkbox" checked><span>Carne bovina</span><b>800 g</b></label><label><input type="checkbox"><span>Ovos</span><b>12 un.</b></label><label><input type="checkbox" checked><span>Queijo muçarela</span><b>400 g</b></label></div>
+            <div class="list-group"><div class="list-group__title"><strong>Despensa</strong><small>5 itens</small></div><label><input type="checkbox" checked><span>Arroz</span><b>1 kg</b></label><label><input type="checkbox"><span>Molho de tomate</span><b>2 un.</b></label><label><input type="checkbox" checked><span>Farinha de rosca</span><b>500 g</b></label><label><input type="checkbox"><span>Azeite</span><b>1 un.</b></label><label><input type="checkbox"><span>Orégano</span><b>1 pct.</b></label></div>
+          </div>
+          <aside class="tip-card"><span>✦</span><p class="eyebrow">Economia da semana</p><h3>Você já tem 4 ingredientes em casa?</h3><p>Marque o que já possui antes de ir ao mercado. No produto final, o valor estimado será recalculado automaticamente.</p><button class="button button--secondary" data-nav="receitas" data-mode="ingredients">Usar meus ingredientes</button></aside>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegação mobile">
+      <button class="is-active" data-nav="inicio"><span>⌂</span><small>Início</small></button>
+      <button data-nav="planejar"><span>▦</span><small>Planejar</small></button>
+      <button data-nav="receitas"><span>◫</span><small>Receitas</small></button>
+      <button data-nav="compras"><span>✓</span><small>Compras</small></button>
+    </nav>
+  </div>
+
+  <dialog class="recipe-modal" id="recipeModal">
+    <button class="modal-close" data-close-modal aria-label="Fechar">×</button>
+    <div class="modal-visual"><img src="../assets/images/category-frango.webp" alt="Frango crocante preparado na Air Fryer"></div>
+    <div class="modal-copy"><p class="eyebrow">Air Fryer · 35 minutos</p><h2>Frango crocante com batatas</h2><p>Exemplo de como a receita será apresentada no produto final.</p><div class="modal-columns"><div><strong>Ingredientes</strong><ul><li>600 g de peito de frango</li><li>700 g de batata</li><li>2 colheres de azeite</li><li>Páprica, sal e alho</li></ul></div><div><strong>Preparo</strong><ol><li>Tempere o frango e corte as batatas.</li><li>Preaqueça a Air Fryer a 200 °C.</li><li>Asse as batatas por 15 minutos.</li><li>Adicione o frango e finalize por 18–20 minutos.</li></ol></div></div><button class="button button--primary button--wide" data-close-modal>Entendi</button></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
