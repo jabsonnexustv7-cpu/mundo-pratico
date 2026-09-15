@@ -1,4 +1,4 @@
-const CACHE = 'mundo-pratico-preview-v2';
+const CACHE = 'mundo-pratico-preview-v3';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', (event) => {
