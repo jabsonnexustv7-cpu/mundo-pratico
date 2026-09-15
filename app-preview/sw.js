@@ -1,7 +1,6 @@
-const CACHE = 'mundo-pratico-preview-v6';
+const CACHE = 'mundo-pratico-preview-v7';
 const ASSETS = [
   './', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg',
-  './acesso.html', './acesso.css', './acesso.js', './supabase-config.js',
   './assets/images/01-frango-crocante-batatas.png',
   './assets/images/02-carne-acebolada-arroz-legumes.png',
   './assets/images/03-tilapia-dourada-batatas-salada.png',
@@ -25,6 +24,19 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  const scope = new URL(self.registration.scope);
+  // Never store Supabase/API responses or resources belonging to another page/system.
+  if (url.origin !== scope.origin || !url.pathname.startsWith(scope.pathname)) return;
+  const relativePath = url.pathname.slice(scope.pathname.length);
+  // Auth must use current network files; callback query strings must never enter the cache.
+  if (['acesso.html', 'acesso.js', 'acesso.css', 'supabase-config.js'].includes(relativePath)) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }).catch(() => new Response(
+      'O acesso requer internet. Reconecte-se e recarregue esta página.',
+      { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' } }
+    )));
+    return;
+  }
 
   event.respondWith(
     fetch(event.request)
