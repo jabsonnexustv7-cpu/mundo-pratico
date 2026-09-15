@@ -7,6 +7,7 @@
   const recipeModal = document.getElementById('recipeModal');
 
   function showToast(message) {
+    if (!toast) return;
     toast.textContent = message;
     toast.classList.add('show');
     clearTimeout(showToast.timer);
@@ -148,13 +149,75 @@
     const checkboxes = Array.from(shoppingList?.querySelectorAll('input[type="checkbox"]') || []);
     const checked = checkboxes.filter((input) => input.checked).length;
     const percent = checkboxes.length ? Math.round((checked / checkboxes.length) * 100) : 0;
-    checkedCount.textContent = String(checked);
-    progressText.textContent = percent + '%';
-    progressBar.style.width = percent + '%';
+    if (checkedCount) checkedCount.textContent = String(checked);
+    if (progressText) progressText.textContent = percent + '%';
+    if (progressBar) progressBar.style.width = percent + '%';
   }
 
   shoppingList?.addEventListener('change', updateShopping);
   updateShopping();
+
+  // Controle de instalação do PWA.
+  let deferredInstallPrompt = null;
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+  function createInstallButton() {
+    if (isStandalone) return null;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .mp-install-button{position:fixed;right:18px;top:18px;z-index:9999;border:0;border-radius:999px;padding:11px 16px;background:#28231f;color:#fff;font:700 13px/1.1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 10px 28px rgba(40,35,31,.22);cursor:pointer;display:flex;align-items:center;gap:8px}
+      .mp-install-button:hover{transform:translateY(-1px)}
+      .mp-install-button span{font-size:16px}
+      @media(max-width:760px){.mp-install-button{top:auto;right:14px;bottom:78px;padding:12px 15px}}
+    `;
+    document.head.appendChild(style);
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mp-install-button';
+    button.setAttribute('aria-label', 'Instalar Mundo Prático');
+    button.innerHTML = '<span>↓</span> Instalar app';
+    document.body.appendChild(button);
+    return button;
+  }
+
+  const installButton = createInstallButton();
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    if (installButton) installButton.innerHTML = '<span>↓</span> Instalar app';
+  });
+
+  installButton?.addEventListener('click', async () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice.catch(() => null);
+      deferredInstallPrompt = null;
+      return;
+    }
+
+    const ua = navigator.userAgent || '';
+    const isiOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isEdge = /Edg\//.test(ua);
+    const isChrome = /Chrome\//.test(ua) && !isEdge;
+
+    if (isiOS) {
+      alert('Para instalar no iPhone/iPad: toque em Compartilhar e depois em “Adicionar à Tela de Início”.');
+    } else if (isEdge) {
+      alert('No Microsoft Edge: abra o menu ⋯, escolha “Apps” e depois “Instalar Mundo Prático”.');
+    } else if (isChrome) {
+      alert('No Chrome: abra o menu ⋮ e escolha “Instalar app” ou “Adicionar à tela inicial”.');
+    } else {
+      alert('Use o menu do navegador e procure “Instalar app” ou “Adicionar à tela inicial”.');
+    }
+  });
+
+  window.addEventListener('appinstalled', () => {
+    installButton?.remove();
+    showToast('Mundo Prático instalado.');
+  });
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
