@@ -1,0 +1,1092 @@
+[
+  {
+    "id": "0c844df1-fed5-44f4-91f3-018c3273a373",
+    "slug": "arroz-de-forno",
+    "title": "Arroz de forno",
+    "description": "Arroz de forno gratinado para aproveitar ingredientes e simplificar o jantar.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 18,
+    "difficulty": "facil",
+    "instructions": [
+      "Misture o arroz cozido com presunto, ervilha, tomate e parte do queijo.",
+      "Coloque em um refratário e cubra com o restante da muçarela.",
+      "Asse até aquecer por completo e gratinar.",
+      "Finalize com cheiro-verde e sirva."
+    ],
+    "equipment": [
+      "forno",
+      "air_fryer"
+    ],
+    "tags": [
+      "economia",
+      "reaproveitamento",
+      "leite"
+    ],
+    "image_path": "./assets/images/12-arroz-de-forno.png",
+    "estimated_cost_cents": 2790,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 600,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "079474af-70bd-4f0d-913e-77ca6637181f",
+          "name": "Arroz cozido",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "cedba390-5e8e-4d7d-9ef2-6f74a36291e7",
+          "name": "Presunto",
+          "category": "frios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 150,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "909afe0f-e8c3-443e-9719-151681ffd328",
+          "name": "Ervilha",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "a1460401-7325-44af-9551-d134f153e9f9",
+          "name": "Tomate",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 250,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2a01dc88-bafe-42be-bd23-b968c39078ac",
+          "name": "Queijo muçarela",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 20,
+        "is_optional": true,
+        "mp_ingredients": {
+          "id": "bd953989-2d2b-405d-87c2-302f4d609bce",
+          "name": "Cheiro-verde",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "bbb96061-fb24-45da-8e9c-4b2001b61c3a",
+    "slug": "batatas-recheadas",
+    "title": "Batatas recheadas",
+    "description": "Batatas douradas com recheio cremoso de queijo e ervas.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 22,
+    "difficulty": "facil",
+    "instructions": [
+      "Cozinhe ou asse as batatas até ficarem macias.",
+      "Corte ao meio, retire parte do miolo e misture com requeijão e queijo.",
+      "Recheie novamente as batatas e polvilhe ervas.",
+      "Leve ao forno ou Air Fryer até dourar."
+    ],
+    "equipment": [
+      "air_fryer",
+      "forno"
+    ],
+    "tags": [
+      "economia",
+      "leite",
+      "praticidade"
+    ],
+    "image_path": "./assets/images/08-batatas-recheadas.png",
+    "estimated_cost_cents": 2290,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 1000,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "5004a310-a3d6-4ef5-966a-1168da1f1458",
+          "name": "Batata inglesa",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2e1fe623-aeeb-4520-ab12-55df58e33562",
+          "name": "Requeijão",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2a01dc88-bafe-42be-bd23-b968c39078ac",
+          "name": "Queijo muçarela",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 20,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "36d524e0-830e-4fe4-9d3f-7f40897ac4b0",
+          "name": "Cebolinha",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "c591ce98-0e46-4333-be76-7f5e3b12bd43",
+    "slug": "carne-acebolada-arroz-legumes",
+    "title": "Carne acebolada com arroz e legumes",
+    "description": "Carne bovina acebolada acompanhada de arroz e legumes simples.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "difficulty": "facil",
+    "instructions": [
+      "Cozinhe o arroz normalmente e reserve.",
+      "Refogue a cebola em parte do azeite até começar a dourar.",
+      "Sele a carne em fogo alto, tempere e volte a cebola para a panela.",
+      "Cozinhe cenoura e brócolis até ficarem macios, mas ainda firmes, e sirva com a carne e o arroz."
+    ],
+    "equipment": [
+      "fogao"
+    ],
+    "tags": [
+      "economia",
+      "carne_bovina"
+    ],
+    "image_path": "./assets/images/02-carne-acebolada-arroz-legumes.png",
+    "estimated_cost_cents": 3890,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 600,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "c65e4a94-0cab-4cf4-b340-c43eb32ad043",
+          "name": "Carne bovina em tiras",
+          "category": "proteinas",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 300,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "c7265f52-fad5-4791-93b7-9b4e9ab21853",
+          "name": "Arroz",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "5ca359b5-85fd-4c88-8a63-4b24d3b0b4ab",
+          "name": "Cebola",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "d1746fd8-5709-4682-a658-a62aabc2aa58",
+          "name": "Cenoura",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 250,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "510e375d-f719-43d3-b8d6-d14fb9615831",
+          "name": "Brócolis",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 30,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "3892624e-dd94-4c68-9c2d-9c143ec4d6fa",
+          "name": "Azeite",
+          "category": "despensa",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "806b5685-2117-483a-ab55-fb689fe7c201",
+    "slug": "frango-barbecue-batatas-rusticas",
+    "title": "Frango barbecue com batatas rústicas",
+    "description": "Frango com molho barbecue caramelizado e batatas douradas.",
+    "servings": 4,
+    "prep_minutes": 12,
+    "cook_minutes": 23,
+    "difficulty": "facil",
+    "instructions": [
+      "Tempere o frango e pincele uma camada fina de molho barbecue.",
+      "Tempere as batatas com azeite, sal e ervas.",
+      "Asse frango e batatas até dourarem.",
+      "Pincele mais barbecue no frango nos minutos finais para caramelizar."
+    ],
+    "equipment": [
+      "air_fryer",
+      "forno"
+    ],
+    "tags": [
+      "frango",
+      "praticidade"
+    ],
+    "image_path": "./assets/images/11-frango-barbecue-batatas-rusticas.png",
+    "estimated_cost_cents": 3490,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 800,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "bf6818b1-c5d8-435d-af5c-d1324ba17dda",
+          "name": "Coxa e sobrecoxa de frango",
+          "category": "proteinas",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 700,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "5004a310-a3d6-4ef5-966a-1168da1f1458",
+          "name": "Batata inglesa",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 150,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "ef15c15e-fb33-4e62-b78a-f0120f8a687e",
+          "name": "Molho barbecue",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 30,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "3892624e-dd94-4c68-9c2d-9c143ec4d6fa",
+          "name": "Azeite",
+          "category": "despensa",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": true,
+        "mp_ingredients": {
+          "id": "ef98b3bc-e755-4d00-87ab-9f63d62b9b65",
+          "name": "Alecrim",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "5e30781f-2cb2-44b5-ae80-63ba49094739",
+    "slug": "frango-cremoso-gratinado",
+    "title": "Frango cremoso gratinado",
+    "description": "Frango cremoso coberto com queijo dourado, simples e reconfortante.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 18,
+    "difficulty": "facil",
+    "instructions": [
+      "Tempere o frango com alho e sal e disponha em um refratário.",
+      "Misture o requeijão com um pouco de leite e espalhe sobre o frango.",
+      "Cubra com muçarela e leve para assar.",
+      "Finalize quando o frango estiver cozido e o queijo bem dourado."
+    ],
+    "equipment": [
+      "air_fryer",
+      "forno"
+    ],
+    "tags": [
+      "praticidade",
+      "frango",
+      "leite"
+    ],
+    "image_path": "./assets/images/07-frango-cremoso-gratinado.png",
+    "estimated_cost_cents": 3590,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 600,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "904c44d1-e026-4e7a-a2d8-58458ce07127",
+          "name": "Peito de frango",
+          "category": "proteinas",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2e1fe623-aeeb-4520-ab12-55df58e33562",
+          "name": "Requeijão",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2a01dc88-bafe-42be-bd23-b968c39078ac",
+          "name": "Queijo muçarela",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 100,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "c94b57f4-2f6d-4f3b-9243-bd8889492f62",
+          "name": "Leite",
+          "category": "laticinios",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 10,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "9bd31c5a-b85a-46ce-9806-dfd8b8c5ed32",
+          "name": "Alho",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "a2550ba4-c855-42fe-a802-35f5daf2b1fd",
+    "slug": "frango-crocante-batatas",
+    "title": "Frango crocante com batatas rústicas",
+    "description": "Frango dourado com batatas rústicas, uma refeição prática para a semana.",
+    "servings": 4,
+    "prep_minutes": 12,
+    "cook_minutes": 23,
+    "difficulty": "facil",
+    "instructions": [
+      "Corte as batatas em gomos e tempere com azeite, páprica e sal.",
+      "Tempere o frango com alho, sal e páprica e passe na farinha de rosca.",
+      "Asse as batatas por 15 minutos a 200 °C.",
+      "Junte o frango e asse por mais 18 a 20 minutos, virando na metade do tempo."
+    ],
+    "equipment": [
+      "air_fryer",
+      "forno"
+    ],
+    "tags": [
+      "praticidade",
+      "frango"
+    ],
+    "image_path": "./assets/images/01-frango-crocante-batatas.png",
+    "estimated_cost_cents": 3290,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 600,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "904c44d1-e026-4e7a-a2d8-58458ce07127",
+          "name": "Peito de frango",
+          "category": "proteinas",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 700,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "5004a310-a3d6-4ef5-966a-1168da1f1458",
+          "name": "Batata inglesa",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 100,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "853b6ab7-6336-4628-9b5a-38d996d93bff",
+          "name": "Farinha de rosca",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 30,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "3892624e-dd94-4c68-9c2d-9c143ec4d6fa",
+          "name": "Azeite",
+          "category": "despensa",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 10,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "9bd31c5a-b85a-46ce-9806-dfd8b8c5ed32",
+          "name": "Alho",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "740176be-394a-4bcd-829a-3f78a1526ff6",
+          "name": "Páprica",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "369e64d9-c9b6-4a2d-9d7c-58e7641b4108",
+    "slug": "macarrao-cremoso-tomate-queijo",
+    "title": "Macarrão cremoso com tomate e queijo",
+    "description": "Massa cremosa com tomate, queijo e ervas frescas.",
+    "servings": 4,
+    "prep_minutes": 8,
+    "cook_minutes": 17,
+    "difficulty": "facil",
+    "instructions": [
+      "Cozinhe o macarrão até ficar al dente.",
+      "Refogue o tomate no azeite e junte o creme de leite.",
+      "Misture a massa ao molho e acrescente a muçarela.",
+      "Finalize com manjericão e queijo ralado."
+    ],
+    "equipment": [
+      "fogao"
+    ],
+    "tags": [
+      "praticidade",
+      "leite",
+      "gluten"
+    ],
+    "image_path": "./assets/images/09-macarrao-cremoso-tomate-queijo.png",
+    "estimated_cost_cents": 2690,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 400,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "925ced3d-b169-4729-bfff-de262b738f89",
+          "name": "Macarrão penne",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 300,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "c2651003-5591-430f-9dcd-ebab0be7f04e",
+          "name": "Tomate cereja",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "4ef5ce7e-4aa1-4c55-b1ae-890494c542ab",
+          "name": "Creme de leite",
+          "category": "laticinios",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 150,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2a01dc88-bafe-42be-bd23-b968c39078ac",
+          "name": "Queijo muçarela",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 50,
+        "is_optional": true,
+        "mp_ingredients": {
+          "id": "d2446e3c-5a9b-47d1-af71-6134732422f4",
+          "name": "Queijo parmesão",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 15,
+        "is_optional": true,
+        "mp_ingredients": {
+          "id": "b5f844f5-1530-4fc1-9166-61712d99ed25",
+          "name": "Manjericão",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 20,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "3892624e-dd94-4c68-9c2d-9c143ec4d6fa",
+          "name": "Azeite",
+          "category": "despensa",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "9a18c31f-93e9-409f-8dbe-2d1a380c20c5",
+    "slug": "mini-pizzas-praticas",
+    "title": "Mini pizzas práticas",
+    "description": "Mini pizzas rápidas com molho de tomate, queijo e orégano.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 10,
+    "difficulty": "facil",
+    "instructions": [
+      "Disponha as bases de mini pizza em uma assadeira ou cesta.",
+      "Espalhe molho de tomate sobre cada base.",
+      "Cubra com muçarela, tomate e orégano.",
+      "Asse até o queijo derreter e começar a dourar."
+    ],
+    "equipment": [
+      "air_fryer",
+      "forno"
+    ],
+    "tags": [
+      "praticidade",
+      "lanche",
+      "leite",
+      "gluten"
+    ],
+    "image_path": "./assets/images/04-mini-pizzas-praticas.png",
+    "estimated_cost_cents": 2490,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "un",
+        "quantity": 8,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "962c0af6-e9ae-44f8-a546-075868c3daf0",
+          "name": "Base para mini pizza",
+          "category": "padaria",
+          "base_unit": "un"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "c5c1dc11-02ea-4249-8ea9-54f7292ad2cd",
+          "name": "Molho de tomate",
+          "category": "despensa",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 300,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2a01dc88-bafe-42be-bd23-b968c39078ac",
+          "name": "Queijo muçarela",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "a1460401-7325-44af-9551-d134f153e9f9",
+          "name": "Tomate",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "7115bdf5-fe00-420b-b8f9-557782cfe20d",
+          "name": "Orégano",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "3d579179-5787-460b-86aa-0f1ee891d3f8",
+    "slug": "omelete-completa-salada",
+    "title": "Omelete completa com salada fresca",
+    "description": "Omelete com vegetais e queijo acompanhada de uma salada simples.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 8,
+    "difficulty": "facil",
+    "instructions": [
+      "Bata os ovos com sal e reserve.",
+      "Refogue rapidamente cebola e pimentão e despeje os ovos.",
+      "Adicione queijo e espinafre e cozinhe até firmar.",
+      "Sirva com alface, tomate e pepino temperados."
+    ],
+    "equipment": [
+      "fogao"
+    ],
+    "tags": [
+      "praticidade",
+      "leite",
+      "baixo_tempo"
+    ],
+    "image_path": "./assets/images/10-omelete-completa-salada.png",
+    "estimated_cost_cents": 2190,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "un",
+        "quantity": 8,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "20c33b42-a469-4034-b0fb-81925b4ddeef",
+          "name": "Ovos",
+          "category": "proteinas",
+          "base_unit": "un"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 150,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "2a01dc88-bafe-42be-bd23-b968c39078ac",
+          "name": "Queijo muçarela",
+          "category": "laticinios",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 100,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "bc85f79e-6fec-48ab-917b-8bfc7c7c11e5",
+          "name": "Espinafre",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 100,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "5ca359b5-85fd-4c88-8a63-4b24d3b0b4ab",
+          "name": "Cebola",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 100,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "ff903ee6-0054-4180-b53a-402e7e1e75c0",
+          "name": "Pimentão",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 150,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "aaf56379-43ee-4cca-b488-ac70562d1ee0",
+          "name": "Alface",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "a1460401-7325-44af-9551-d134f153e9f9",
+          "name": "Tomate",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 150,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "934ddfa6-0297-4ecf-9d39-0f0610ceb8bb",
+          "name": "Pepino",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  },
+  {
+    "id": "d5d413ef-168e-4ec0-a4cf-70019570ecdb",
+    "slug": "tilapia-dourada-batatas-salada",
+    "title": "Tilápia dourada com batatas e salada",
+    "description": "Filés de tilápia dourados com batatas rústicas e salada fresca.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "difficulty": "facil",
+    "instructions": [
+      "Tempere a tilápia com limão, alho e sal.",
+      "Tempere as batatas com azeite e asse até dourar.",
+      "Grelhe ou asse os filés até ficarem cozidos e dourados.",
+      "Misture alface e tomate e sirva com a tilápia e as batatas."
+    ],
+    "equipment": [
+      "air_fryer",
+      "forno",
+      "fogao"
+    ],
+    "tags": [
+      "peixe",
+      "leve",
+      "praticidade"
+    ],
+    "image_path": "./assets/images/03-tilapia-dourada-batatas-salada.png",
+    "estimated_cost_cents": 4190,
+    "mp_recipe_ingredients": [
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 600,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "eaa578d9-d25f-4738-b1f7-f022150fe2da",
+          "name": "Filé de tilápia",
+          "category": "proteinas",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 600,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "5004a310-a3d6-4ef5-966a-1168da1f1458",
+          "name": "Batata inglesa",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 200,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "aaf56379-43ee-4cca-b488-ac70562d1ee0",
+          "name": "Alface",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 300,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "a1460401-7325-44af-9551-d134f153e9f9",
+          "name": "Tomate",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 100,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "735a9c21-7302-4b63-9727-424c0a46f5b2",
+          "name": "Limão",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 10,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "9bd31c5a-b85a-46ce-9806-dfd8b8c5ed32",
+          "name": "Alho",
+          "category": "hortifruti",
+          "base_unit": "g"
+        }
+      },
+      {
+        "note": null,
+        "unit": "ml",
+        "quantity": 30,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "3892624e-dd94-4c68-9c2d-9c143ec4d6fa",
+          "name": "Azeite",
+          "category": "despensa",
+          "base_unit": "ml"
+        }
+      },
+      {
+        "note": null,
+        "unit": "g",
+        "quantity": 5,
+        "is_optional": false,
+        "mp_ingredients": {
+          "id": "1e685019-c859-434a-b125-5d032fbfcdb6",
+          "name": "Sal",
+          "category": "temperos",
+          "base_unit": "g"
+        }
+      }
+    ]
+  }
+]

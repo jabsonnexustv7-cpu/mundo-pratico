@@ -8,6 +8,350 @@
   const PROFILE_KEY = 'mp-preview-profile-v1';
   let flowStage = 0;
   let currentProfile = null;
+  let dataModule = null;
+  let realMode = false;
+  let accountId = null;
+  let realCatalog = [];
+  let latestPlan = null;
+  const realRecipes = new Map();
+  const demoMarkup = Object.fromEntries(['recipeGrid', 'shoppingList'].map((id) => [id, document.getElementById(id)?.innerHTML]));
+  const demoHero = document.querySelector('.hero-card')?.innerHTML;
+  const demoMeals = document.querySelector('.meal-grid')?.innerHTML;
+  const backendReady = initializeBackend();
+
+  function budgetAmount(value) {
+    if (value == null || value === '' || /sem limite/i.test(String(value))) return null;
+    if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+    const digits = String(value).replace(/[^\d.,]/g, '');
+    const normalized = digits.includes(',') ? digits.replace(/\./g, '').replace(',', '.') : digits;
+    return normalized ? Number(normalized) : null;
+  }
+
+  function money(cents) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(cents) / 100);
+  }
+
+  function request(promise) {
+    let timer;
+    return Promise.race([promise, new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error('Mundo Prático request timed out')), 20000);
+    })]).finally(() => clearTimeout(timer));
+  }
+
+  function element(tag, text, className) {
+    const node = document.createElement(tag);
+    if (text != null) node.textContent = String(text);
+    if (className) node.className = className;
+    return node;
+  }
+
+  function photo(path, title) {
+    const image = document.createElement('img');
+    image.src = path;
+    image.alt = title;
+    image.width = 1448;
+    image.height = 1086;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    return image;
+  }
+
+  function equipmentLabel(values = []) {
+    const labels = { air_fryer: 'Air Fryer', fogao: 'Fogão', forno: 'Forno' };
+    return values.map((value) => labels[value] || value).join(' / ');
+  }
+
+  function localDate(date = new Date()) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  }
+
+  function mealDay(value) {
+    return new Intl.DateTimeFormat('pt-BR', { weekday: 'short' }).format(new Date(value + 'T12:00:00')).replace('.', '').toUpperCase();
+  }
+
+  function setDataMode(session) {
+    realMode = Boolean(session?.user && session.hasAccess === true);
+    accountId = realMode ? session.user.id : null;
+    document.body.dataset.dataMode = realMode ? 'real' : 'demo';
+    let status = document.getElementById('mpDataMode');
+    if (!status) {
+      status = element('p', '', 'mp-data-mode');
+      status.id = 'mpDataMode';
+      status.setAttribute('role', 'status');
+      document.querySelector('.main').prepend(status);
+    }
+    status.textContent = realMode ? 'Dados salvos na sua conta' : 'Modo demonstração';
+    const tag = document.querySelector('.prototype-tag');
+    if (tag) tag.textContent = realMode ? 'Sua conta · Mundo Prático' : 'Preview · Modo demonstração';
+    const pill = document.querySelector('.prototype-pill');
+    if (pill) pill.textContent = realMode ? 'Minha conta' : 'Demo';
+    const description = document.querySelector('#view-compras .page-heading > p:last-child');
+    if (description) description.textContent = realMode ? 'Lista consolidada do seu cardápio, salva na sua conta.' : 'Gerada a partir do cardápio. Neste preview, os dados ficam apenas no navegador.';
+    const tip = document.querySelector('.tip-card > p:not(.eyebrow)');
+    if (tip) tip.textContent = realMode ? 'Marque o que já possui antes de ir ao mercado. Os valores do cardápio são estimativas, não preços garantidos do supermercado.' : 'Marque o que já possui antes de ir ao mercado. No produto final, o valor estimado será recalculado automaticamente.';
+    const refresh = document.getElementById('mpRefreshShopping');
+    if (refresh) refresh.hidden = !realMode;
+    if (currentProfile) applyProfile(currentProfile);
+    else {
+      const subtitle = document.querySelector('#view-planejar .page-heading > p:last-child');
+      if (subtitle) subtitle.textContent = realMode ? 'Defina suas preferências para gerar e salvar seu cardápio.' : 'Experimente a geração do cardápio no modo demonstração.';
+    }
+  }
+
+  function returnToDemo() {
+    latestPlan = null;
+    realCatalog = [];
+    realRecipes.clear();
+    setDataMode(null);
+    recipeModal?.close();
+    Object.entries(demoMarkup).forEach(([id, html]) => { document.getElementById(id).innerHTML = html; });
+    document.querySelector('.hero-card').innerHTML = demoHero;
+    document.querySelector('.hero-card').hidden = false;
+    document.querySelector('.meal-grid').innerHTML = demoMeals;
+    document.getElementById('shoppingEstimate').textContent = 'R$ 187';
+    plannerResult.replaceChildren(element('p', 'Gere um plano para experimentar o preview.', 'plan-note'));
+    bindRecipeButtons();
+    document.querySelector('.hero-card [data-nav]').addEventListener('click', () => navigate('planejar'));
+    updateShopping();
+  }
+
+  function reportBackendError(error, message) {
+    console.error('Mundo Prático:', error);
+    if (error.code === 'MP_ACCESS_LOST' || error.status === 401 || error.code === 'PGRST301') {
+      returnToDemo();
+      showToast('Sua sessão ou acesso não está ativo. Entre novamente para usar sua conta.');
+    } else showToast(message);
+  }
+
+  async function requireRealSession() {
+    const session = await request(dataModule.getMundoPraticoSession());
+    if (!session.user || !session.hasAccess || session.user.id !== accountId) {
+      const error = new Error('Session or entitlement unavailable');
+      error.code = 'MP_ACCESS_LOST';
+      throw error;
+    }
+    return session;
+  }
+
+  async function initializeBackend() {
+    if (!navigator.onLine) { setDataMode(null); return; }
+    try {
+      dataModule = await request(import('./mp-data.js'));
+      const session = await request(dataModule.getMundoPraticoSession());
+      setDataMode(session);
+      if (!realMode) return;
+      document.getElementById('shoppingList').replaceChildren(element('p', 'Gere seu plano para criar a lista de compras.', 'plan-note'));
+      document.getElementById('shoppingEstimate').textContent = '—';
+      document.querySelector('.meal-grid').replaceChildren(element('p', 'Gere seu plano para ver as próximas refeições.', 'plan-note'));
+      updateShopping();
+      await loadRealCatalog();
+    } catch (error) {
+      console.error('Mundo Prático: inicialização', error);
+      if (!realMode) setDataMode(null);
+      else catalogError();
+    }
+  }
+
+  function catalogError() {
+    const grid = document.getElementById('recipeGrid');
+    const retry = element('button', 'Tentar carregar receitas novamente', 'button button--secondary');
+    retry.type = 'button';
+    retry.addEventListener('click', async () => {
+      retry.disabled = true;
+      try { await requireRealSession(); await loadRealCatalog(); }
+      catch (error) { reportBackendError(error, 'Não foi possível carregar as receitas. Tente novamente.'); }
+      finally { retry.disabled = false; }
+    });
+    grid.replaceChildren(element('p', 'Não foi possível carregar o catálogo.', 'plan-note'), retry);
+    showToast('Não foi possível carregar as receitas. Tente novamente.');
+  }
+
+  async function ensureCatalog() {
+    if (!realCatalog.length) {
+      realCatalog = await request(dataModule.loadRecipeCatalog());
+      realCatalog.forEach((recipe) => realRecipes.set(recipe.id, recipe));
+    }
+    return realCatalog;
+  }
+
+  async function loadRealCatalog() {
+    try {
+      const catalog = await ensureCatalog();
+      renderCatalog(catalog);
+      if (catalog.length) renderHomeRecipe(catalog[0]);
+      else document.querySelector('.hero-card').hidden = true;
+    } catch (error) {
+      console.error('Mundo Prático: catálogo', error);
+      document.querySelector('.hero-card').hidden = true;
+      catalogError();
+    }
+  }
+
+  function filteredCatalog(label) {
+    if (label === 'Até 30 min') return realCatalog.filter((recipe) => recipe.prep_minutes + recipe.cook_minutes <= 30);
+    if (label === 'Air Fryer') return realCatalog.filter((recipe) => recipe.equipment.includes('air_fryer'));
+    if (label === 'Econômicas') return [...realCatalog].sort((a, b) => a.estimated_cost_cents - b.estimated_cost_cents);
+    return realCatalog;
+  }
+
+  function renderCatalog(recipes) {
+    const grid = document.getElementById('recipeGrid');
+    grid.replaceChildren();
+    if (!recipes.length) grid.append(element('p', 'Nenhuma receita encontrada.', 'plan-note'));
+    recipes.forEach((recipe) => {
+      realRecipes.set(recipe.id, recipe);
+      const card = element('article', null, 'recipe-card');
+      const frame = element('div', null, 'recipe-photo');
+      const minutes = Number(recipe.prep_minutes || 0) + Number(recipe.cook_minutes || 0);
+      frame.append(photo(recipe.image_path, recipe.title), element('span', `${minutes} min`));
+      const body = element('div', null, 'recipe-body');
+      body.append(element('p', equipmentLabel(recipe.equipment), 'eyebrow'), element('h3', recipe.title), element('p', recipe.description));
+      body.append(element('p', `Custo estimado: ${money(recipe.estimated_cost_cents)}`, 'mp-recipe-cost'));
+      if (recipe.matched_ingredients != null) body.append(element('p', `${recipe.matched_ingredients} de ${recipe.total_required_ingredients} ingredientes encontrados`, 'mp-recipe-match'));
+      const button = element('button', 'Ver receita →', 'text-button');
+      button.type = 'button';
+      button.dataset.openRecipe = '';
+      button.dataset.recipeId = recipe.id;
+      button.addEventListener('click', () => openRecipe(recipe.id));
+      body.append(button);
+      card.append(frame, body);
+      grid.append(card);
+    });
+  }
+
+  function modalRecipe(recipe) {
+    return {
+      image: recipe.image_path, alt: recipe.title, title: recipe.title,
+      meta: `${equipmentLabel(recipe.equipment)} · ${Number(recipe.prep_minutes || 0) + Number(recipe.cook_minutes || 0)} minutos · ${recipe.servings} porções`,
+      description: recipe.description,
+      ingredients: (recipe.mp_recipe_ingredients || []).map((item) => `${new Intl.NumberFormat('pt-BR').format(item.quantity)} ${item.unit} de ${item.mp_ingredients.name}${item.is_optional ? ' (opcional)' : ''}`),
+      steps: Array.isArray(recipe.instructions) ? recipe.instructions : String(recipe.instructions || '').split('\n').filter(Boolean),
+    };
+  }
+
+  function renderHomeRecipe(recipe) {
+    const hero = document.querySelector('.hero-card');
+    hero.hidden = false;
+    hero.querySelector('h2').textContent = recipe.title;
+    hero.querySelector('.hero-card__copy > p').textContent = recipe.description;
+    hero.querySelector('.chip').textContent = latestPlan ? 'Seu cardápio' : 'Do seu catálogo';
+    const image = hero.querySelector('img');
+    image.src = recipe.image_path;
+    image.alt = recipe.title;
+    hero.querySelector('.meal-meta').replaceChildren(element('span', `${Number(recipe.prep_minutes || 0) + Number(recipe.cook_minutes || 0)} min`), element('span', `${recipe.servings} porções`), element('span', equipmentLabel(recipe.equipment)));
+    hero.querySelector('[data-open-recipe]').dataset.recipeId = recipe.id;
+    bindRecipeButtons();
+  }
+
+  function readPlannerProfile() {
+    const selected = (selector) => Array.from(plannerForm.querySelectorAll(selector)).map((input) => plannerForm.querySelector(`label[for="${input.id}"]`).textContent);
+    return { people: document.getElementById('people').value, budget: budgetAmount(document.getElementById('budget').value), goal: selected('input[name="goal"]:checked')[0], equipment: selected('.choice-grid input[type="checkbox"]:checked'), avoid: Array.from(plannerForm.querySelectorAll('.tag.is-selected')).map((tag) => tag.textContent.replace('×', '').trim()) };
+  }
+
+  async function generateRealPlan() {
+    plannerForm.querySelector('.button-label').textContent = 'Salvando seu plano…';
+    await requireRealSession();
+    const profile = readPlannerProfile();
+    const result = await request(dataModule.generateWeekPlan({
+      startDate: localDate(), householdSize: parseInt(profile.people, 10),
+      budgetCents: profile.budget == null ? null : Math.round(profile.budget * 100),
+      goal: { Praticidade: 'praticidade', Economia: 'economia', 'Mais variedade': 'variedade' }[profile.goal],
+      equipment: profile.equipment, avoidItems: profile.avoid,
+    }));
+    if (!Array.isArray(result?.meals) || result.meals.length !== 7 || !Array.isArray(result.shopping_items)) throw new Error('Unexpected week plan response');
+    latestPlan = result;
+    saveProfile(profile);
+    const wrapper = element('div', null, 'plan-result');
+    const header = element('div', null, 'plan-result__header');
+    header.append(element('p', 'Plano salvo', 'eyebrow'), element('h3', 'Seu plano de 7 dias'), element('p', `${result.household_size} pessoas · ${result.start_date} a ${result.end_date}`));
+    header.append(element('p', `Orçamento informado: ${result.budget_cents == null ? 'Sem limite definido' : money(result.budget_cents)}`), element('p', `Custo estimado do cardápio: ${money(result.estimated_cost_cents)}`), element('p', `Margem restante: ${result.budget_cents == null ? 'Não definida' : money(result.budget_cents - result.estimated_cost_cents)}`));
+    if (result.within_budget === false) header.append(element('p', 'Este cardápio ficou acima do orçamento.', 'mp-budget-warning'));
+    wrapper.append(header);
+    result.meals.forEach((meal) => {
+      const row = element('div', null, 'day-plan');
+      const frame = element('div', null, 'day-plan__thumbnail');
+      frame.append(photo(meal.image_path, meal.title));
+      const copy = element('div');
+      const description = element('small', meal.description, 'day-plan__description');
+      description.title = meal.description;
+      copy.append(element('strong', meal.title), description, element('small', `${meal.servings} porções · custo estimado ${money(meal.estimated_cost_cents)}`, 'day-plan__details'));
+      row.append(element('span', mealDay(meal.meal_date)), frame, copy, element('b', `${meal.total_minutes} min`));
+      wrapper.append(row);
+    });
+    const actions = element('div', null, 'mp-result-actions');
+    const recipes = element('button', 'Ver receitas do plano', 'secondary');
+    recipes.type = 'button';
+    recipes.addEventListener('click', async () => {
+      recipes.disabled = true;
+      try {
+        await requireRealSession();
+        await ensureCatalog();
+        const selected = [...new Set(latestPlan.meals.map((meal) => meal.recipe_id))].map((id) => realRecipes.get(id)).filter(Boolean);
+        renderCatalog(selected);
+        setFlowStage(3);
+        navigate('receitas');
+      } catch (error) { reportBackendError(error, 'Não foi possível carregar as receitas do plano.'); }
+      finally { recipes.disabled = false; }
+    });
+    const shopping = element('button', 'Abrir lista de compras →', 'primary');
+    shopping.type = 'button';
+    shopping.addEventListener('click', () => { setFlowStage(4); navigate('compras'); });
+    actions.append(recipes, shopping);
+    wrapper.append(actions, element('p', 'Custos estimados. Os preços podem variar no supermercado.', 'plan-note'));
+    plannerResult.replaceChildren(wrapper);
+    renderShopping(result.shopping_items);
+    document.querySelector('.meal-grid').replaceChildren();
+    result.meals.slice(1, 4).forEach((meal) => {
+      const card = element('article', null, 'meal-card');
+      const frame = element('div', null, 'meal-card__image');
+      frame.append(photo(meal.image_path, meal.title));
+      card.append(element('span', mealDay(meal.meal_date), 'day'), frame, element('h3', meal.title), element('p', meal.description), element('small', `${meal.total_minutes} min · ${meal.servings} porções`));
+      document.querySelector('.meal-grid').append(card);
+    });
+    if (realRecipes.has(result.meals[0].recipe_id)) renderHomeRecipe({ ...realRecipes.get(result.meals[0].recipe_id), ...result.meals[0], id: result.meals[0].recipe_id });
+    setFlowStage(2);
+    showToast('Plano e lista de compras salvos na sua conta.');
+  }
+
+  function renderShopping(items) {
+    shoppingList.replaceChildren();
+    const groups = new Map();
+    const categories = { hortifruti: 'Hortifruti', proteinas: 'Carnes e proteínas', carnes: 'Carnes e proteínas', laticinios: 'Laticínios', despensa: 'Despensa', temperos: 'Temperos' };
+    items.forEach((item) => {
+      const category = item.category || item.mp_ingredients?.category || 'Outros';
+      if (!groups.has(category)) groups.set(category, []);
+      groups.get(category).push(item);
+    });
+    groups.forEach((items, category) => {
+      const group = element('div', null, 'list-group');
+      const title = element('div', null, 'list-group__title');
+      title.append(element('strong', categories[category] || category), element('small', `${items.length} itens`));
+      group.append(title);
+      items.forEach((item) => {
+        const label = element('label');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.checked = Boolean(item.is_checked);
+        input.dataset.itemId = item.id;
+        label.append(input, element('span', item.item_name), element('b', `${new Intl.NumberFormat('pt-BR').format(item.quantity)} ${item.unit}`));
+        group.append(label);
+      });
+      shoppingList.append(group);
+    });
+    if (!items.length) shoppingList.append(element('p', 'Sua lista está vazia.', 'plan-note'));
+    document.getElementById('shoppingEstimate').textContent = latestPlan ? money(latestPlan.estimated_cost_cents) : '—';
+    updateShopping();
+  }
+
+  async function refreshRealShopping() {
+    if (!latestPlan) { showToast('Gere um plano para criar sua lista de compras.'); return; }
+    try {
+      await requireRealSession();
+      latestPlan.shopping_items = await request(dataModule.loadShoppingList(latestPlan.shopping_list_id));
+      renderShopping(latestPlan.shopping_items);
+      showToast('Lista do último plano carregada. Para incluir outra receita, gere um novo cardápio.');
+    } catch (error) { reportBackendError(error, 'Não foi possível carregar a lista. Tente novamente.'); }
+  }
 
   function showToast(message) {
     if (!toast) return;
@@ -70,7 +414,9 @@
   function loadProfile() {
     try {
       const saved = localStorage.getItem(PROFILE_KEY);
-      return saved ? JSON.parse(saved) : null;
+      const profile = saved ? JSON.parse(saved) : null;
+      if (!profile || typeof profile !== 'object' || !Array.isArray(profile.equipment) || !Array.isArray(profile.avoid)) return null;
+      return { ...profile, budget: budgetAmount(profile.budget) };
     } catch (_) {
       return null;
     }
@@ -87,7 +433,7 @@
   function profileSummary(profile) {
     if (!profile) return '';
     const equipment = profile.equipment.length ? profile.equipment.join(' + ') : 'equipamentos flexíveis';
-    return `${profile.people} · ${profile.budget.toLowerCase()} · foco em ${profile.goal.toLowerCase()} · ${equipment}`;
+    return `${profile.people} · ${profile.budget == null ? 'sem limite definido' : money(Math.round(profile.budget * 100))} · foco em ${profile.goal.toLowerCase()} · ${equipment}`;
   }
 
   function syncPlannerFromProfile(profile) {
@@ -99,8 +445,7 @@
       if (option) people.value = option.value;
     }
     if (budget) {
-      const option = Array.from(budget.options).find((item) => item.textContent === profile.budget);
-      if (option) budget.value = option.value;
+      budget.value = profile.budget == null ? '' : String(budgetAmount(profile.budget));
     }
     const goalMap = { 'Praticidade': 'g1', 'Economia': 'g2', 'Mais variedade': 'g3' };
     const goalInput = document.getElementById(goalMap[profile.goal]);
@@ -126,7 +471,7 @@
       note.className = 'mp-profile-note';
       homeTop.insertAdjacentElement('afterend', note);
     }
-    if (note) note.innerHTML = `<strong>Sugestões simuladas para você:</strong> ${profileSummary(profile)}. No produto final, o cardápio será gerado a partir dessas escolhas.`;
+    if (note) note.textContent = `${realMode ? 'Suas preferências' : 'Sugestões simuladas para você'}: ${profileSummary(profile)}.${realMode ? '' : ' Modo demonstração.'}`;
 
     const plannerSubtitle = document.querySelector('#view-planejar .page-heading > p:last-child');
     if (plannerSubtitle) plannerSubtitle.textContent = `Preferências carregadas: ${profileSummary(profile)}. Ajuste qualquer item antes de gerar a semana.`;
@@ -153,7 +498,7 @@
           <div class="mp-choice-list">
             ${[['Praticidade','Menos tempo decidindo e preparando'],['Economia','Aproveitar melhor o orçamento'],['Mais variedade','Evitar repetir as mesmas refeições']].map((item, index) => `<div class="mp-choice"><input type="radio" name="obGoal" id="obg${index}" value="${item[0]}" ${index === 0 ? 'checked' : ''}><label for="obg${index}"><span>${item[0]}<small>${item[1]}</small></span></label></div>`).join('')}
           </div>
-          <label style="display:block;margin-top:20px;font-weight:800;font-size:13px">Orçamento semanal aproximado<select class="mp-onboarding__select" id="obBudget"><option>Até R$ 150</option><option selected>Até R$ 250</option><option>Até R$ 350</option><option>Sem limite definido</option></select></label>
+          <label style="display:block;margin-top:20px;font-weight:800;font-size:13px">Quanto quer gastar com alimentação nesta semana?<div class="mp-money-field"><span aria-hidden="true">R$</span><input class="mp-onboarding__select" id="obBudget" type="number" min="0" max="21474836.47" step="0.01" inputmode="decimal" value="250" placeholder="250,00" aria-label="Orçamento semanal em reais"></div><small>Deixe vazio para não definir um limite.</small></label>
         </section>
         <section class="mp-step" data-step="2">
           <p class="eyebrow">3 de 4 · sua cozinha</p><h2>Quais equipamentos você quer usar?</h2><p>Marque um ou mais. As receitas serão compatíveis com sua rotina.</p>
@@ -162,11 +507,11 @@
           </div>
         </section>
         <section class="mp-step" data-step="3">
-          <p class="eyebrow">4 de 4 · preferências</p><h2>Tem algo que prefere evitar?</h2><p>Você pode alterar isso depois. No preview, usamos essas escolhas apenas para simular a personalização.</p>
+          <p class="eyebrow">4 de 4 · preferências</p><h2>Tem algo que prefere evitar?</h2><p>Você pode alterar isso depois. Essas escolhas orientam a seleção das refeições.</p>
           <div class="mp-choice-list">
             ${['Peixe','Carne suína','Leite','Glúten'].map((item, index) => `<div class="mp-choice"><input type="checkbox" name="obAvoid" id="oba${index}" value="${item}" ${item === 'Peixe' ? 'checked' : ''}><label for="oba${index}">${item}</label></div>`).join('')}
           </div>
-          <p class="mp-demo-note">Nenhum dado é enviado ou salvo em servidor nesta versão.</p>
+          <p class="mp-demo-note">As preferências ficam neste navegador. Ao gerar um plano com acesso ativo, os dados são salvos na sua conta.</p>
         </section>
         <div class="mp-onboarding__footer"><button class="mp-back" type="button" hidden>Voltar</button><button class="mp-next" type="button">Continuar →</button></div>
       </div>`;
@@ -186,6 +531,7 @@
 
     back.addEventListener('click', () => { step = Math.max(0, step - 1); updateStep(); });
     next.addEventListener('click', () => {
+      if (step === 1 && !overlay.querySelector('#obBudget').reportValidity()) return;
       if (step < steps.length - 1) {
         step += 1;
         updateStep();
@@ -193,7 +539,7 @@
       }
       const people = overlay.querySelector('input[name="obPeople"]:checked')?.value || '4 pessoas';
       const goal = overlay.querySelector('input[name="obGoal"]:checked')?.value || 'Praticidade';
-      const budget = overlay.querySelector('#obBudget')?.value || 'Até R$ 250';
+      const budget = budgetAmount(overlay.querySelector('#obBudget')?.value);
       const equipment = Array.from(overlay.querySelectorAll('input[name="obEquipment"]:checked')).map((item) => item.value);
       const avoid = Array.from(overlay.querySelectorAll('input[name="obAvoid"]:checked')).map((item) => item.value);
       const profile = { people, goal, budget, equipment: equipment.length ? equipment : ['Fogão'], avoid };
@@ -292,6 +638,17 @@
       banner.className = 'mp-connected-banner';
       banner.innerHTML = '<span>✓</span><div><strong>Lista gerada a partir do cardápio</strong>As quantidades abaixo representam os ingredientes consolidados das refeições da semana.</div>';
       shoppingHeading.insertAdjacentElement('afterend', banner);
+      const refresh = element('button', 'Atualizar lista', 'button button--secondary');
+      refresh.id = 'mpRefreshShopping';
+      refresh.type = 'button';
+      refresh.hidden = !realMode;
+      refresh.addEventListener('click', async () => {
+        if (refresh.disabled) return;
+        refresh.disabled = true;
+        try { await refreshRealShopping(); }
+        finally { refresh.disabled = false; }
+      });
+      banner.querySelector('div').append(refresh);
     }
   }
 
@@ -303,7 +660,8 @@
     filter.addEventListener('click', () => {
       document.querySelectorAll('.filter').forEach((item) => item.classList.remove('is-active'));
       filter.classList.add('is-active');
-      showToast('Filtro aplicado no preview.');
+      if (realMode) renderCatalog(filteredCatalog(filter.textContent));
+      else showToast('Filtro aplicado no preview.');
     });
   });
 
@@ -319,10 +677,28 @@
     { day: 'DOM', title: 'Arroz de forno', side: 'Reaproveitamento', time: '28 min', image: './assets/images/12-arroz-de-forno.png', alt: 'Arroz de forno com legumes e cobertura de queijo gratinado' }
   ];
 
-  plannerForm?.addEventListener('submit', (event) => {
+  plannerForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const button = plannerForm.querySelector('button[type="submit"]');
     const label = button.querySelector('.button-label');
+    if (button.disabled) return;
+    const originalLabel = label.textContent;
+    button.disabled = true;
+    try {
+      await backendReady;
+      if (realMode) {
+        await generateRealPlan();
+        label.textContent = 'Gerar outro plano';
+        return;
+      }
+    } catch (error) {
+      reportBackendError(error, 'Não foi possível gerar o plano. Tente novamente.');
+      label.textContent = originalLabel;
+      return;
+    } finally {
+      button.disabled = false;
+    }
+    saveProfile(readPlannerProfile());
     label.textContent = 'Montando sua semana…';
     button.disabled = true;
 
@@ -446,7 +822,8 @@
   };
 
   function openRecipe(recipeId) {
-    const recipe = recipeData[recipeId];
+    const source = realMode ? realRecipes.get(recipeId) : null;
+    const recipe = realMode ? (source ? modalRecipe(source) : null) : recipeData[recipeId];
     if (!recipe || !recipeModal) return;
     const image = recipeModal.querySelector('.modal-visual img');
     image.src = recipe.image;
@@ -495,13 +872,14 @@
       recipeModal.close();
       setFlowStage(3);
       navigate('planejar');
-      showToast('Receita adicionada ao cardápio da semana.');
+      showToast(realMode ? 'Ajuste suas preferências e gere o cardápio para salvar na conta.' : 'Receita adicionada ao cardápio da semana.');
     });
-    actions.querySelector('[data-recipe-action="shopping"]')?.addEventListener('click', () => {
+    actions.querySelector('[data-recipe-action="shopping"]')?.addEventListener('click', async () => {
       recipeModal.close();
       setFlowStage(4);
       navigate('compras');
-      showToast('Ingredientes adicionados à lista de compras.');
+      if (realMode) await refreshRealShopping();
+      else showToast('Ingredientes adicionados à lista de compras.');
     });
     actions.querySelector('[data-recipe-action="swap"]')?.addEventListener('click', () => {
       recipeModal.close();
@@ -514,13 +892,38 @@
   enhanceRecipeModal();
 
   const ingredientForm = document.getElementById('ingredientForm');
-  ingredientForm?.addEventListener('submit', (event) => {
+  ingredientForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const input = document.getElementById('ingredientInput');
     if (!input.value.trim()) {
       showToast('Digite pelo menos um ingrediente para testar.');
       input.focus();
       return;
+    }
+    const button = ingredientForm.querySelector('button');
+    if (button.disabled) return;
+    const label = button.textContent;
+    button.disabled = true;
+    try {
+      await backendReady;
+      if (realMode) {
+        button.textContent = 'Buscando receitas…';
+        await requireRealSession();
+        const ingredients = input.value.split(',').map((value) => value.trim()).filter(Boolean);
+        const matches = await request(dataModule.findRecipesByIngredients(ingredients));
+        const catalog = await ensureCatalog();
+        const recipes = matches.map((match) => ({ ...catalog.find((recipe) => recipe.id === match.recipe_id), ...match, id: match.recipe_id }));
+        renderCatalog(recipes);
+        setFlowStage(3);
+        showToast(recipes.length ? `${recipes.length} receitas encontradas.` : 'Nenhuma receita encontrada com esses ingredientes.');
+        return;
+      }
+    } catch (error) {
+      reportBackendError(error, 'Não foi possível buscar receitas. Tente novamente.');
+      return;
+    } finally {
+      button.disabled = false;
+      button.textContent = label;
     }
     setFlowStage(3);
     showToast(`Ideias simuladas usando: ${input.value.trim()}.`);
@@ -539,11 +942,32 @@
     if (checkedCount) checkedCount.textContent = String(checked);
     if (progressText) progressText.textContent = percent + '%';
     if (progressBar) progressBar.style.width = percent + '%';
+    document.getElementById('shoppingTotal').textContent = `de ${checkboxes.length} itens separados`;
+    const shortcut = document.querySelector('.quick-card[data-nav="compras"] small');
+    if (shortcut) shortcut.textContent = `${checked} de ${checkboxes.length} itens separados`;
   }
 
-  shoppingList?.addEventListener('change', () => {
+  shoppingList?.addEventListener('change', async (event) => {
+    const input = event.target;
+    if (!(input instanceof HTMLInputElement) || input.type !== 'checkbox') return;
+    const checked = input.checked;
     updateShopping();
     setFlowStage(4);
+    if (!realMode) return;
+    input.disabled = true;
+    try {
+      await requireRealSession();
+      const saved = await request(dataModule.setShoppingItemChecked(input.dataset.itemId, checked));
+      input.checked = saved.is_checked;
+      const item = latestPlan?.shopping_items.find((item) => item.id === input.dataset.itemId);
+      if (item) item.is_checked = saved.is_checked;
+    } catch (error) {
+      input.checked = !checked;
+      reportBackendError(error, 'Não foi possível salvar este item. Tente novamente.');
+    } finally {
+      input.disabled = false;
+      updateShopping();
+    }
   });
   updateShopping();
 
