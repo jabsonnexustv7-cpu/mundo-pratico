@@ -1,6 +1,7 @@
-const CACHE = 'mundo-pratico-preview-v5';
+const CACHE = 'mundo-pratico-preview-v6';
 const ASSETS = [
   './', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg',
+  './acesso.html', './acesso.css', './acesso.js', './supabase-config.js',
   './assets/images/01-frango-crocante-batatas.png',
   './assets/images/02-carne-acebolada-arroz-legumes.png',
   './assets/images/03-tilapia-dourada-batatas-salada.png',
